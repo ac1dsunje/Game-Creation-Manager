@@ -8,6 +8,7 @@ public class GamePlayScope: LifetimeScope
     protected override void Configure(IContainerBuilder builder)
     {
         builder.RegisterComponentInHierarchy<EmployeeSpawner>();
+        builder.RegisterComponentInHierarchy<FormsUI>();
     }
 }
 }

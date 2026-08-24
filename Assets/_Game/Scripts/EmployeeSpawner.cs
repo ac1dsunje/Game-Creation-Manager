@@ -1,15 +1,27 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace _Game.Scripts
 {
 public class EmployeeSpawner: MonoBehaviour
 {
-    [SerializeField] private GameObject _employeePrefab;
+    [SerializeField] private Employee _employeePrefab;
+    [SerializeField] private int _employeeCount = 15;
     
-    [ContextMenu("SpawnForm")]
-    public void SpawnEmployee()
+    public event Action<Employee> OnEmployeeSpawned;
+    
+    private void Start()
     {
-        Instantiate(_employeePrefab, transform.position, Quaternion.identity, transform);
+        for (var i = 0; i < _employeeCount; i++)
+        {
+            SpawnEmployee();
+        }
+    }
+    
+    private void SpawnEmployee()
+    {
+        var newEmployee = Instantiate(_employeePrefab, transform.position, Quaternion.identity, transform);
+        OnEmployeeSpawned?.Invoke(newEmployee);
     }
 }
 }
