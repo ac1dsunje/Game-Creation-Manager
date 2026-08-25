@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
 
@@ -7,33 +6,45 @@ namespace _Game.Scripts
 {
 public class FormsUI: MonoBehaviour
 {
-    [SerializeField] private FormSlotUI _slot;
+    [SerializeField] private GameObject _slot;
     [SerializeField] private Transform _container;
     
-    private List<FormSlotUI> _slots = new();
+    private readonly List<FormSlotUI> _slots = new();
     
     private EmployeeSpawner _spawner;
-    
-    public event Action<Employee> OnEmployeeChosen;
+    private WorkingRoom _workingRoom;
 
     [Inject]
-    private void Construct(EmployeeSpawner spawner)
+    private void Construct(EmployeeSpawner spawner, WorkingRoom workingRoom)
     {
         _spawner = spawner;
         _spawner.OnEmployeeSpawned += CreateFormUI;
+        
+        _workingRoom = workingRoom;
     }
 
     private void CreateFormUI(Employee employee)
     {
-        var slot = Instantiate(_slot, _container);
+        var slot = Instantiate(_slot, _container).GetComponent<FormSlotUI>();
         slot.SetEmployee(employee);
         _slots.Add(slot);
-        slot.OnEmployeeChosen += OnEmployeeChosen;
+        slot.OnEmployeeChosen += ApplyForm;
+    }
+
+    private void ApplyForm(Employee employee, FormSlotUI slot)
+    {
+        _workingRoom.AddEmployee(employee);
+        Destroy(slot.gameObject);
+        _slots.Remove(slot);
     }
 
     private void OnDestroy()
     {
         _spawner.OnEmployeeSpawned -= CreateFormUI;
+        foreach (var slot in _slots)
+        {
+            slot.OnEmployeeChosen -= ApplyForm;
+        }
     }
 }
 }

@@ -11,7 +11,7 @@ public class FormSlotUI: MonoBehaviour, IPointerClickHandler
 
     private Employee _employee;
     
-    public event Action<Employee> OnEmployeeChosen;
+    public event Action<Employee, FormSlotUI> OnEmployeeChosen;
     
     public void SetEmployee(Employee employee)
     {
@@ -21,7 +21,7 @@ public class FormSlotUI: MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        OnEmployeeChosen?.Invoke(_employee);
+        OnEmployeeChosen?.Invoke(_employee, this);
     }
 }
 }
