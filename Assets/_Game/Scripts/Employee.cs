@@ -18,5 +18,7 @@ public class Employee: MonoBehaviour
             ShownForm : 
             new Form(Random.Range(1, ShownForm.Experience + 1), Random.Range(ShownForm.Age, 100));
     }
+    
+    
 }
 }

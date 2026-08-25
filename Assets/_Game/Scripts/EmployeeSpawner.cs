@@ -20,7 +20,7 @@ public class EmployeeSpawner: MonoBehaviour
     
     private void SpawnEmployee()
     {
-        var newEmployee = Instantiate(_employeePrefab, transform.position, Quaternion.identity, transform);
+        var newEmployee = Instantiate(_employeePrefab, new Vector2(transform.position.x - 100, transform.position.y), Quaternion.identity, transform);
         OnEmployeeSpawned?.Invoke(newEmployee);
     }
 }

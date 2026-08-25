@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,6 +11,8 @@ public class FormSlotUI: MonoBehaviour, IPointerClickHandler
 
     private Employee _employee;
     
+    public event Action<Employee> OnEmployeeChosen;
+    
     public void SetEmployee(Employee employee)
     {
         _employee = employee;
@@ -18,7 +21,7 @@ public class FormSlotUI: MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("OnPointerClick");
+        OnEmployeeChosen?.Invoke(_employee);
     }
 }
 }

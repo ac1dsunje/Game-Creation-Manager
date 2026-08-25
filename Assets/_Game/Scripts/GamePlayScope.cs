@@ -9,6 +9,7 @@ public class GamePlayScope: LifetimeScope
     {
         builder.RegisterComponentInHierarchy<EmployeeSpawner>();
         builder.RegisterComponentInHierarchy<FormsUI>();
+        builder.RegisterComponentInHierarchy<WorkingRoom>();
     }
 }
 }

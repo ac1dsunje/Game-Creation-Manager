@@ -53,5 +53,13 @@ public class Boss: MonoBehaviour
             _currentComputer = computer;
         }
     }
+    
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.TryGetComponent(out Computer computer))
+        {
+            _currentComputer = null;
+        }
+    }
 }
 }

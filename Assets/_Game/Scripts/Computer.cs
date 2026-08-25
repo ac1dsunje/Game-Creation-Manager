@@ -8,6 +8,7 @@ public class Computer: MonoBehaviour
     [SerializeField] private GameObject _off;
 
     private bool _isActive;
+    public bool IsBusy { get; private set; }
     
     private void Awake()
     {
