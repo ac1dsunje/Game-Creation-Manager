@@ -9,7 +9,6 @@ public class Computer: MonoBehaviour
 
     private bool _isActive;
     public bool IsBusy { get; private set; }
-    private Employee _employee;
     
     private void Awake()
     {
@@ -24,11 +23,7 @@ public class Computer: MonoBehaviour
             On();
     }
 
-    public void SetEmployee(Employee employee)
-    {
-        _employee = employee;
-        IsBusy = true;
-    }
+    public void SetBusy(bool state) => IsBusy = state;
 
     private void Off()
     {

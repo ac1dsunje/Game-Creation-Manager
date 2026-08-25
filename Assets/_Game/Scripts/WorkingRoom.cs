@@ -22,7 +22,8 @@ public class WorkingRoom: MonoBehaviour
             
             employee.transform.position = new Vector2(position.x, position.y - 1);
             
-            computer.SetEmployee(employee);
+            computer.SetBusy(true);
+            employee.SetComputer(computer);
             
             return;
         }
