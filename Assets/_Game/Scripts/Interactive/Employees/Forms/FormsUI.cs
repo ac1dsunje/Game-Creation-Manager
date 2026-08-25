@@ -2,7 +2,7 @@
 using UnityEngine;
 using VContainer;
 
-namespace _Game.Scripts
+namespace _Game.Scripts.Interactive.Employees.Forms
 {
 public class FormsUI: MonoBehaviour
 {

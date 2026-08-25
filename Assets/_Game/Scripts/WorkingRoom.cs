@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using _Game.Scripts.Interactive;
+using _Game.Scripts.Interactive.Employees;
 using UnityEngine;
 
 namespace _Game.Scripts

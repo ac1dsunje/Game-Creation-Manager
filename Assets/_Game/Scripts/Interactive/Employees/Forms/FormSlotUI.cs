@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace _Game.Scripts
+namespace _Game.Scripts.Interactive.Employees.Forms
 {
 public class FormSlotUI: MonoBehaviour, IPointerClickHandler
 {

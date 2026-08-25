@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace _Game.Scripts
+namespace _Game.Scripts.Interactive.Employees
 {
 public class EmployeeSpawner: MonoBehaviour
 {
