@@ -46,8 +46,8 @@ public class BossController : MonoBehaviour
     {
         _renderer.flipX = input switch
         {
-            > 0.1f => false,
-            < -0.1f => true,
+            > 0f => false,
+            < 0f => true,
             _ => _renderer.flipX
         };
     }
