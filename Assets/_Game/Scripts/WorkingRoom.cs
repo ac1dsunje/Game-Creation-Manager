@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using _Game.Scripts.Interactive;
+using _Game.Scripts.Interactive.Computers;
 using _Game.Scripts.Interactive.Employees;
 using UnityEngine;
 
@@ -22,7 +22,7 @@ public class WorkingRoom: MonoBehaviour
             
             var position = computer.transform.position;
             
-            employee.transform.position = new Vector2(position.x, position.y - 1);
+            employee.transform.position = new Vector2(position.x, position.y - 0.5f);
             
             computer.SetBusy(true);
             employee.SetComputer(computer);

@@ -10,6 +10,7 @@ public class BossController : MonoBehaviour
     private PlayerInput _playerInput;
 
     private IInteractable _interactable;
+    private bool _interacted;
 
     private void Awake()
     {
@@ -34,6 +35,10 @@ public class BossController : MonoBehaviour
     private void ReadInput()
     {
         _interactable?.Interact();
+        if (_interactable != null)
+        {
+            _interacted = !_interacted;
+        }
     }
 
     private void TryFlip(float input)
@@ -58,6 +63,11 @@ public class BossController : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out IInteractable interactable))
         {
+            if (_interacted)
+            {
+                _interactable.Interact();
+                _interacted = false;
+            }
             _interactable = null;
         }
     }

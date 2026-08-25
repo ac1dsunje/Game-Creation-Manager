@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 
-namespace _Game.Scripts.Interactive
+namespace _Game.Scripts.Interactive.Computers
 {
 public class Computer: MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject _on;
     [SerializeField] private GameObject _off;
+    [SerializeField] private ComputerUI _ui;
 
     private bool _isActive;
     public bool IsBusy { get; private set; }
@@ -13,31 +14,34 @@ public class Computer: MonoBehaviour, IInteractable
     private void Awake()
     {
         Off();
-    }
-
-    private void Toggle()
-    {
-        if (_isActive)
-            Off();
-        else
-            On();
+        _ui.gameObject.SetActive(false);
     }
 
     public void Interact()
     {
-        Toggle();
+        if (_isActive)
+        {
+            _ui.gameObject.SetActive(false);
+            _isActive = false;
+        }
+            
+        else
+        {
+            _ui.gameObject.SetActive(true);
+            _isActive = true;
+        }
     }
 
     public void SetBusy(bool state) => IsBusy = state;
 
-    private void Off()
+    public void Off()
     {
         _off.SetActive(true);
         _on.SetActive(false);
         _isActive = false;
     }
 
-    private void On()
+    public void On()
     {
         _off.SetActive(false);
         _on.SetActive(true);
