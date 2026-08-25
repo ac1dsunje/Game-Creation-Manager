@@ -9,6 +9,7 @@ public class Computer: MonoBehaviour, IInteractable
     [SerializeField] private ComputerUI _ui;
 
     private bool _isActive;
+    public bool IsOn { get; private set; }
     public bool IsBusy { get; private set; }
     
     private void Awake()
@@ -19,17 +20,8 @@ public class Computer: MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (_isActive)
-        {
-            _ui.gameObject.SetActive(false);
-            _isActive = false;
-        }
-            
-        else
-        {
-            _ui.gameObject.SetActive(true);
-            _isActive = true;
-        }
+        _isActive = !_isActive;
+        _ui.gameObject.SetActive(_isActive);
     }
 
     public void SetBusy(bool state) => IsBusy = state;
@@ -38,14 +30,14 @@ public class Computer: MonoBehaviour, IInteractable
     {
         _off.SetActive(true);
         _on.SetActive(false);
-        _isActive = false;
+        IsOn = false;
     }
 
     public void On()
     {
         _off.SetActive(false);
         _on.SetActive(true);
-        _isActive = true;
+        IsOn = true;
     }
 }
 }
