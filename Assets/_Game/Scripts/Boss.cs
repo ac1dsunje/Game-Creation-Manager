@@ -6,6 +6,7 @@ namespace _Game.Scripts
 public class Boss: MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private SpriteRenderer _renderer;
     private Rigidbody2D _rb;
     
     private Vector2 _moveDirection;
@@ -17,7 +18,17 @@ public class Boss: MonoBehaviour
 
     private void Update()
     {
-        _moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        var horizontalInput = Input.GetAxis("Horizontal");
+        var verticalInput = Input.GetAxis("Vertical");
+
+        _renderer.flipX = horizontalInput switch
+        {
+            > 0.1f => false,
+            < -0.1f => true,
+            _ => _renderer.flipX
+        };
+
+        _moveDirection = new Vector2(horizontalInput, verticalInput);
     }
 
     private void FixedUpdate()
