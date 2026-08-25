@@ -28,7 +28,8 @@ public class FormsUI: MonoBehaviour
         var slot = Instantiate(_slot, _container).GetComponent<FormSlotUI>();
         slot.SetEmployee(employee);
         _slots.Add(slot);
-        slot.OnEmployeeChosen += ApplyForm;
+        slot.OnEmployeeAccepted += ApplyForm;
+        slot.OnEmployeeDeclined += DeclineForm;
     }
 
     private void ApplyForm(Employee employee, FormSlotUI slot)
@@ -38,12 +39,20 @@ public class FormsUI: MonoBehaviour
         _slots.Remove(slot);
     }
 
+    private void DeclineForm(Employee employee, FormSlotUI slot)
+    {
+        Destroy(slot.gameObject);
+        _slots.Remove(slot);
+        Destroy(employee.gameObject);
+    }
+
     private void OnDestroy()
     {
         _spawner.OnEmployeeSpawned -= CreateFormUI;
         foreach (var slot in _slots)
         {
-            slot.OnEmployeeChosen -= ApplyForm;
+            slot.OnEmployeeAccepted -= ApplyForm;
+            slot.OnEmployeeDeclined -= DeclineForm;
         }
     }
 }
