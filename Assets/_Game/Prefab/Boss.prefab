@@ -61,7 +61,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &2613650903852165267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,7 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ff6756f2ad4c5bb20c0033d9427099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Boss
-  _moveSpeed: 5
+  _moveSpeed: 2
+  _renderer: {fileID: 7278155015091438846}
 --- !u!70 &7947628163695433910
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -124,6 +125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: 897a29b97a398fa4a8925964b53387e1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 897a29b97a398fa4a8925964b53387e1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -172,5 +177,10 @@ PrefabInstance:
 --- !u!4 &4179854529154231063 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 897a29b97a398fa4a8925964b53387e1, type: 3}
+  m_PrefabInstance: {fileID: 6292749496110797850}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &7278155015091438846 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3626916397498700004, guid: 897a29b97a398fa4a8925964b53387e1, type: 3}
   m_PrefabInstance: {fileID: 6292749496110797850}
   m_PrefabAsset: {fileID: 0}
