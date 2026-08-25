@@ -8,8 +8,6 @@ public class Employee: InteractiveObject
 {
     [SerializeField] private EmployeeUI _ui;
     
-    [SerializeField] private int _honestCoefficient;
-    [SerializeField] private int _loyaltyCoefficient;
     [SerializeField] private int _moodCoefficient;
     
     [field: SerializeField] public Form ShownForm { get; private set; }
@@ -28,13 +26,11 @@ public class Employee: InteractiveObject
 
     private void InitializeStats()
     {
-        _honestCoefficient = Random.Range(0, 10);
-        _loyaltyCoefficient = Random.Range(0, 10);
-        _moodCoefficient = Random.Range(0, 10);
+        _moodCoefficient = Random.Range(3, 8);
         
         RealForm = new Form(Random.Range(1, 6), Random.Range(18, 100));
 
-        ShownForm = _honestCoefficient > 5 ? 
+        ShownForm = Random.Range(0, 10) > 5 ? 
             RealForm : 
             new Form(Random.Range(RealForm.Efficiency, 6), Random.Range(RealForm.Age, 100));
     }
