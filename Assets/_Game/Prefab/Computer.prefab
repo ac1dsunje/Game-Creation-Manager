@@ -785,9 +785,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0dcff6773a14994aeda2e2306140b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Computer
+  _visual: {fileID: 6454854252903027635}
   _on: {fileID: 5572525986807175502}
   _off: {fileID: 3568474132785961364}
-  _ui: {fileID: 2710410635814243195}
 --- !u!1 &7430468296179102147
 GameObject:
   m_ObjectHideFlags: 0

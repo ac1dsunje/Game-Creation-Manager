@@ -4,21 +4,27 @@ using UnityEngine;
 
 namespace _Game.Scripts.Interactive.Employees
 {
-public class Employee: MonoBehaviour, IInteractable
+public class Employee: InteractiveObject
 {
-    [SerializeField] private EmployeeUI _visual;
+    [SerializeField] private EmployeeUI _ui;
     
     [SerializeField] private int _honestCoefficient;
     [field: SerializeField] public Form ShownForm { get; private set; }
     [field: SerializeField] public Form RealForm { get; private set; }
     
-    private bool _isActive;
     private Computer _computer;
     
-    private void Awake()
+    protected override void Awake()
     {
-        _visual.gameObject.SetActive(false);
+        base.Awake();
+
+        InitializeStats();
         
+        gameObject.name = ShownForm.Name;
+    }
+
+    private void InitializeStats()
+    {
         _honestCoefficient = Random.Range(0, 10);
         
         ShownForm = new Form(Random.Range(1, 6), Random.Range(18, 100));
@@ -26,14 +32,6 @@ public class Employee: MonoBehaviour, IInteractable
         RealForm = _honestCoefficient > 5 ? 
             ShownForm : 
             new Form(Random.Range(1, ShownForm.Experience + 1), Random.Range(ShownForm.Age, 100));
-        
-        gameObject.name = ShownForm.Name;
-    }
-
-    public void Interact()
-    {
-        _isActive = !_isActive;
-        _visual.gameObject.SetActive(_isActive);
     }
 
     public void Fire()
@@ -44,7 +42,7 @@ public class Employee: MonoBehaviour, IInteractable
 
     private void Update()
     {
-        _visual.SetInfo(ShownForm);
+        _ui.SetInfo(ShownForm);
         if (_computer != null && _computer.IsOn)
         {
             Debug.Log($"{gameObject.name} is working");

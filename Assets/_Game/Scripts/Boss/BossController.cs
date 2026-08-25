@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Game.Scripts.Interactive;
+using UnityEngine;
 
 namespace _Game.Scripts.Boss
 {
@@ -9,7 +10,7 @@ public class BossController : MonoBehaviour
 
     private PlayerInput _playerInput;
 
-    private IInteractable _interactable;
+    private InteractiveObject _interactable;
     private bool _interacted;
 
     private void Awake()
@@ -53,7 +54,7 @@ public class BossController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.TryGetComponent(out IInteractable interactable))
+        if (other.gameObject.TryGetComponent(out InteractiveObject interactable))
         {
             _interactable = interactable;
         }
@@ -61,7 +62,7 @@ public class BossController : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.TryGetComponent(out IInteractable interactable))
+        if (other.gameObject.TryGetComponent(out InteractiveObject interactable))
         {
             if (_interacted)
             {
