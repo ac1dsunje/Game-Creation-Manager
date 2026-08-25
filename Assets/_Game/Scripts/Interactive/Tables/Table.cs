@@ -2,7 +2,7 @@
 using UnityEngine;
 using VContainer;
 
-namespace _Game.Scripts.Interactive
+namespace _Game.Scripts.Interactive.Tables
 {
 public class Table: MonoBehaviour, IInteractable
 {
@@ -11,7 +11,6 @@ public class Table: MonoBehaviour, IInteractable
     
     public void Interact()
     {
-        Debug.Log("U interacted with table");
         Toggle();
     }
 

@@ -1,6 +1,7 @@
 ﻿using _Game.Scripts.Interactive;
 using _Game.Scripts.Interactive.Employees;
 using _Game.Scripts.Interactive.Employees.Forms;
+using _Game.Scripts.Interactive.Tables;
 using VContainer;
 using VContainer.Unity;
 
