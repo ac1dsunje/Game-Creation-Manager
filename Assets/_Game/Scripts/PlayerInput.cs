@@ -24,18 +24,11 @@ namespace _Game.Scripts
         private void OnEnable()
         {
             _inputSystemActions.Enable();
-
-            Pressed += Call; // Example, this should be in other script
         }
 
         private void OnDisable()
         {
             _inputSystemActions.Disable();
-        }
-
-        private void Call() // This too
-        {
-            Debug.Log("Vizov Po Nazhatiyu");
         }
     }
 }
