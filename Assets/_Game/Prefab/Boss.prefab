@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 822998823541392933}
   - component: {fileID: 2613650903852165267}
   - component: {fileID: 7947628163695433910}
+  - component: {fileID: 4088947910961534505}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -76,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Boss
   _moveSpeed: 2
   _renderer: {fileID: 7278155015091438846}
+  _movement: {fileID: 4088947910961534505}
 --- !u!70 &7947628163695433910
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -113,6 +115,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.046441436}
   m_Size: {x: 0.5, y: 0.9071171}
   m_Direction: 0
+--- !u!114 &4088947910961534505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9169065098095320831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e3de13878de41dfa3dce0a568a3a067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Boss.MovementController
 --- !u!1001 &6292749496110797850
 PrefabInstance:
   m_ObjectHideFlags: 0

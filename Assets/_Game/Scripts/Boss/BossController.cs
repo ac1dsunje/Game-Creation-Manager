@@ -1,22 +1,17 @@
 ﻿using UnityEngine;
 
-namespace _Game.Scripts
+namespace _Game.Scripts.Boss
 {
-[RequireComponent(typeof(Rigidbody2D))]
-public class Boss: MonoBehaviour
+public class BossController: MonoBehaviour
 {
     [SerializeField] private float _moveSpeed;
     [SerializeField] private SpriteRenderer _renderer;
+    [SerializeField] private MovementController _movement;
     private Rigidbody2D _rb;
     
     private Vector2 _moveDirection;
 
     private Computer _currentComputer;
-
-    private void Awake()
-    {
-        _rb = GetComponent<Rigidbody2D>();
-    }
 
     private void Update()
     {
@@ -43,7 +38,7 @@ public class Boss: MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.linearVelocity = _moveDirection * _moveSpeed;
+        _movement.Move(_moveDirection * _moveSpeed);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
