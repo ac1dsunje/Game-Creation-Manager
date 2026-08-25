@@ -1,9 +1,10 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace _Game.Scripts
 {
-public class FormSlotUI: MonoBehaviour
+public class FormSlotUI: MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private TextMeshProUGUI _employeeExperience;
 
@@ -13,6 +14,11 @@ public class FormSlotUI: MonoBehaviour
     {
         _employee = employee;
         _employeeExperience.text = $"{_employee.ShownForm.Experience}";
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log("OnPointerClick");
     }
 }
 }

@@ -5,27 +5,27 @@ namespace _Game.Scripts
 {
     public class PlayerInput : MonoBehaviour
     {
-        private InputSystem_Actions inputSystemActions;
+        private InputSystem_Actions _inputSystemActions;
 
         public event Action Pressed;
 
         private void Awake()
         {
-            inputSystemActions = new InputSystem_Actions();
+            _inputSystemActions = new InputSystem_Actions();
 
-            inputSystemActions.Player.Press.started += ctx => Pressed?.Invoke();
+            _inputSystemActions.Player.Press.started += ctx => Pressed?.Invoke();
         }
 
         private void OnEnable()
         {
-            inputSystemActions.Enable();
+            _inputSystemActions.Enable();
 
             Pressed += Call; // Example, this should be in other script
         }
 
         private void OnDisable()
         {
-            inputSystemActions.Disable();
+            _inputSystemActions.Disable();
         }
 
         private void Call() // This too
