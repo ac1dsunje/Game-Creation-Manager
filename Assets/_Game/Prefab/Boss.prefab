@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3de13878de41dfa3dce0a568a3a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Boss.MovementController
-  _moveSpeed: 5
+  _moveSpeed: 2
 --- !u!114 &7086678709248642811
 MonoBehaviour:
   m_ObjectHideFlags: 0
