@@ -1,4 +1,5 @@
-﻿using _Game.Scripts.Interactive.Employees;
+﻿using _Game.Scripts.Interactive;
+using _Game.Scripts.Interactive.Employees;
 using _Game.Scripts.Interactive.Employees.Forms;
 using VContainer;
 using VContainer.Unity;
@@ -12,6 +13,7 @@ public class GamePlayScope: LifetimeScope
         builder.RegisterComponentInHierarchy<EmployeeSpawner>();
         builder.RegisterComponentInHierarchy<FormsUI>();
         builder.RegisterComponentInHierarchy<WorkingRoom>();
+        builder.RegisterComponentInHierarchy<Table>();
     }
 }
 }

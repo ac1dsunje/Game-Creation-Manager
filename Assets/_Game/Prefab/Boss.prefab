@@ -98,8 +98,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.046441436}
-  m_Size: {x: 0.5, y: 0.9071171}
+  m_Offset: {x: 0, y: -0.25}
+  m_Size: {x: 0.5, y: 0.5}
   m_Direction: 0
 --- !u!114 &2613650903852165267
 MonoBehaviour:
@@ -113,7 +113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ff6756f2ad4c5bb20c0033d9427099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Boss
-  _moveSpeed: 2
   _renderer: {fileID: 7278155015091438846}
   _movement: {fileID: 4088947910961534505}
 --- !u!114 &4088947910961534505
@@ -128,6 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3de13878de41dfa3dce0a568a3a067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Boss.MovementController
+  _moveSpeed: 5
 --- !u!114 &7086678709248642811
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ namespace _Game.Scripts.Boss
         private PlayerInput _playerInput;
         private Rigidbody2D _rb;
 
-        public float HorizontalInput { private set; get; }
+        public float HorizontalInput { get; private set;}
 
         private void Awake()
         {
