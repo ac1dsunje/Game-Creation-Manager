@@ -6632,6 +6632,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table
       objectReference: {fileID: 0}
+    - target: {fileID: 3616869638343145899, guid: 3281f4f7d454c6c4cbddaaf893f8007c, type: 3}
+      propertyPath: m_Size.y
+      value: 0.63034916
+      objectReference: {fileID: 0}
+    - target: {fileID: 3616869638343145899, guid: 3281f4f7d454c6c4cbddaaf893f8007c, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.15646684
+      objectReference: {fileID: 0}
     - target: {fileID: 5617731825737294978, guid: 3281f4f7d454c6c4cbddaaf893f8007c, type: 3}
       propertyPath: _visual
       value: 
