@@ -15,6 +15,11 @@ public class BossController: MonoBehaviour
 
     private void Update()
     {
+        ReadInput();
+    }
+
+    private void ReadInput()
+    {
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (_currentComputer != null)
@@ -25,15 +30,19 @@ public class BossController: MonoBehaviour
         
         var horizontalInput = Input.GetAxis("Horizontal");
         var verticalInput = Input.GetAxis("Vertical");
+        
+        TryFlip(horizontalInput);
+        _moveDirection = new Vector2(horizontalInput, verticalInput);
+    }
 
-        _renderer.flipX = horizontalInput switch
+    private void TryFlip(float input)
+    {
+        _renderer.flipX = input switch
         {
             > 0.1f => false,
             < -0.1f => true,
             _ => _renderer.flipX
         };
-
-        _moveDirection = new Vector2(horizontalInput, verticalInput);
     }
 
     private void FixedUpdate()
