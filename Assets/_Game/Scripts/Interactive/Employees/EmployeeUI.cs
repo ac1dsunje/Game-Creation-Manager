@@ -26,7 +26,7 @@ public class EmployeeUI: MonoBehaviour
     public void SetInfo(Form form)
     {
         _name.text = form.Name;
-        _experience.text = form.Experience.ToString();
+        _experience.text = form.Efficiency.ToString();
     }
 
     private void OnDestroy()

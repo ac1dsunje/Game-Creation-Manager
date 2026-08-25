@@ -26,7 +26,7 @@ public class FormSlotUI: MonoBehaviour
     public void SetEmployee(Employee employee)
     {
         _employee = employee;
-        _employeeExperience.text = $"{_employee.ShownForm.Experience}";
+        _employeeExperience.text = $"{_employee.ShownForm.Efficiency}";
         _name.text = _employee.ShownForm.Name;
         _age.text = $"{_employee.ShownForm.Age}";
     }

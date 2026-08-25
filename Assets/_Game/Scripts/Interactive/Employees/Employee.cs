@@ -9,6 +9,9 @@ public class Employee: InteractiveObject
     [SerializeField] private EmployeeUI _ui;
     
     [SerializeField] private int _honestCoefficient;
+    [SerializeField] private int _loyaltyCoefficient;
+    [SerializeField] private int _moodCoefficient;
+    
     [field: SerializeField] public Form ShownForm { get; private set; }
     [field: SerializeField] public Form RealForm { get; private set; }
     
@@ -31,7 +34,7 @@ public class Employee: InteractiveObject
 
         RealForm = _honestCoefficient > 5 ? 
             ShownForm : 
-            new Form(Random.Range(1, ShownForm.Experience + 1), Random.Range(ShownForm.Age, 100));
+            new Form(Random.Range(1, ShownForm.Efficiency + 1), Random.Range(ShownForm.Age, 100));
     }
 
     public void Fire()
