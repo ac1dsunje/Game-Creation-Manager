@@ -7,12 +7,25 @@ public class WorkingRoom: MonoBehaviour
 {
     [SerializeField] private List<Computer> _computers;
     
-    [SerializeField] private readonly List<Employee> _employees = new();
+    [SerializeField] private List<Employee> _employees = new();
 
     public void AddEmployee(Employee employee)
     {
         _employees.Add(employee);
-        employee.transform.SetParent(transform);
+
+        foreach (var computer in _computers)
+        {
+            if (computer.IsBusy) continue;
+            employee.transform.SetParent(computer.transform);
+            
+            var position = computer.transform.position;
+            
+            employee.transform.position = new Vector2(position.x, position.y - 1);
+            
+            computer.SetEmployee(employee);
+            
+            return;
+        }
     }
 }
 }
