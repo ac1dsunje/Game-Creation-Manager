@@ -29,6 +29,8 @@ public class Employee: InteractiveObject
     private void InitializeStats()
     {
         _honestCoefficient = Random.Range(0, 10);
+        _loyaltyCoefficient = Random.Range(0, 10);
+        _moodCoefficient = Random.Range(0, 10);
         
         RealForm = new Form(Random.Range(1, 6), Random.Range(18, 100));
 
