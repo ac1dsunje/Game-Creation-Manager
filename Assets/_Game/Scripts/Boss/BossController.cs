@@ -11,7 +11,7 @@ public class BossController: MonoBehaviour
     
     private Vector2 _moveDirection;
 
-    private Computer _currentComputer;
+    private IInteractable _interactable;
 
     private void Update()
     {
@@ -22,10 +22,7 @@ public class BossController: MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (_currentComputer != null)
-            {
-                _currentComputer.Toggle();
-            }
+            _interactable?.Interact();
         }
         
         var horizontalInput = Input.GetAxis("Horizontal");
@@ -52,17 +49,17 @@ public class BossController: MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.TryGetComponent(out Computer computer))
+        if (other.gameObject.TryGetComponent(out IInteractable interactable))
         {
-            _currentComputer = computer;
+            _interactable = interactable;
         }
     }
     
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.TryGetComponent(out Computer computer))
+        if (other.gameObject.TryGetComponent(out IInteractable interactable))
         {
-            _currentComputer = null;
+            _interactable = null;
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace _Game.Scripts
 {
-public class Employee: MonoBehaviour
+public class Employee: MonoBehaviour, IInteractable
 {
     [SerializeField] private int _honestCoefficient;
     [field: SerializeField] public Form ShownForm { get; private set; }
@@ -19,6 +19,12 @@ public class Employee: MonoBehaviour
         RealForm = _honestCoefficient > 5 ? 
             ShownForm : 
             new Form(Random.Range(1, ShownForm.Experience + 1), Random.Range(ShownForm.Age, 100));
+    }
+
+    public void Interact()
+    {
+        _computer.SetBusy(false);
+        Destroy(gameObject);
     }
 
     public void SetComputer(Computer computer)

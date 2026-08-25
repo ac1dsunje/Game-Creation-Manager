@@ -2,7 +2,7 @@
 
 namespace _Game.Scripts
 {
-public class Computer: MonoBehaviour
+public class Computer: MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject _on;
     [SerializeField] private GameObject _off;
@@ -15,12 +15,17 @@ public class Computer: MonoBehaviour
         Off();
     }
 
-    public void Toggle()
+    private void Toggle()
     {
         if (_isActive)
             Off();
         else
             On();
+    }
+
+    public void Interact()
+    {
+        Toggle();
     }
 
     public void SetBusy(bool state) => IsBusy = state;
