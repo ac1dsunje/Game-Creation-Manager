@@ -11,6 +11,8 @@ public class Boss: MonoBehaviour
     
     private Vector2 _moveDirection;
 
+    private Computer _currentComputer;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -18,6 +20,14 @@ public class Boss: MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (_currentComputer != null)
+            {
+                _currentComputer.Toggle();
+            }
+        }
+        
         var horizontalInput = Input.GetAxis("Horizontal");
         var verticalInput = Input.GetAxis("Vertical");
 
@@ -34,6 +44,14 @@ public class Boss: MonoBehaviour
     private void FixedUpdate()
     {
         _rb.linearVelocity = _moveDirection * _moveSpeed;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.TryGetComponent(out Computer computer))
+        {
+            _currentComputer = computer;
+        }
     }
 }
 }
