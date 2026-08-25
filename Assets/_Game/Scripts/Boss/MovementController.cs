@@ -2,19 +2,34 @@
 
 namespace _Game.Scripts.Boss
 {
-[RequireComponent(typeof(Rigidbody2D))]
-public class MovementController: MonoBehaviour
-{
-    private Rigidbody2D _rb;
-
-    private void Awake()
+    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(PlayerInput))]
+    public class MovementController : MonoBehaviour
     {
-        _rb = GetComponent<Rigidbody2D>();
-    }
+        [SerializeField] private float _moveSpeed = 5f;
 
-    public void Move(Vector2 direction)
-    {
-        _rb.linearVelocity = direction;
+        private PlayerInput _playerInput;
+        private Rigidbody2D _rb;
+
+        public float HorizontalInput { private set; get; }
+
+        private void Awake()
+        {
+            _rb = GetComponent<Rigidbody2D>();
+            _playerInput = GetComponent<PlayerInput>();
+        }
+
+        private void FixedUpdate()
+        {
+            Move();
+        }
+
+        private void Move()
+        {
+            if (_playerInput == null) return;
+
+            Vector2 inputDirection = _playerInput.MoveInput;
+            _rb.linearVelocity = inputDirection * _moveSpeed;
+        }
     }
-}
 }

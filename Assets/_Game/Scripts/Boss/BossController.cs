@@ -4,12 +4,8 @@ namespace _Game.Scripts.Boss
 {
 public class BossController: MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private MovementController _movement;
-    private Rigidbody2D _rb;
-    
-    private Vector2 _moveDirection;
 
     private IInteractable _interactable;
 
@@ -24,12 +20,10 @@ public class BossController: MonoBehaviour
         {
             _interactable?.Interact();
         }
-        
-        var horizontalInput = Input.GetAxis("Horizontal");
-        var verticalInput = Input.GetAxis("Vertical");
+
+        var horizontalInput = _movement.HorizontalInput;
         
         TryFlip(horizontalInput);
-        _moveDirection = new Vector2(horizontalInput, verticalInput);
     }
 
     private void TryFlip(float input)
@@ -40,11 +34,6 @@ public class BossController: MonoBehaviour
             < -0.1f => true,
             _ => _renderer.flipX
         };
-    }
-
-    private void FixedUpdate()
-    {
-        _movement.Move(_moveDirection * _moveSpeed);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
