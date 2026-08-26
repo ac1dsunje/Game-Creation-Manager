@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Game.Scripts.Boss;
 using _Game.Scripts.Interactive.Computers;
 using _Game.Scripts.Interactive.Employees;
 using UnityEngine;
 using VContainer;
+using EventType = _Game.Scripts.Interactive.Employees.EventType;
 
 namespace _Game.Scripts
 {
@@ -21,6 +23,7 @@ public class WorkingRoom: MonoBehaviour
         employee.OnLeave += OnEmployeeLeave;
         employee.OnPaid += OnEmployeePaid;
         employee.OnFinishedTask += OnEmployeeFinishedTask;
+        employee.OnEventStarted += OnEventStarted;
 
         foreach (var computer in _computers)
         {
@@ -35,6 +38,34 @@ public class WorkingRoom: MonoBehaviour
             employee.SetComputer(computer);
             
             return;
+        }
+    }
+
+    private void OnEventStarted(Employee employee, EventType eventType)
+    {
+        Debug.Log($"{eventType} started by {employee.ShownForm.Name}");
+        switch (eventType)
+        {
+            case EventType.LowEfficiency:
+                employee.SetMaxProgress(60);
+                break;
+            case EventType.HighEfficiency:
+                employee.SetMaxProgress(10);
+                break;
+            case EventType.Scream:
+                break;
+            case EventType.Fart:
+                break;
+            case EventType.Sneeze:
+                break;
+            case EventType.Cry:
+                break;
+            case EventType.Music:
+                break;
+            case EventType.Kill:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(eventType), eventType, null);
         }
     }
 
@@ -56,18 +87,22 @@ public class WorkingRoom: MonoBehaviour
     private void DeleteEmployee(Employee employee)
     {
         _employees.Remove(employee);
+        Unsubscribe(employee);
+    }
+
+    private void Unsubscribe(Employee employee)
+    {
         employee.OnLeave -= OnEmployeeLeave;
         employee.OnPaid -= OnEmployeePaid;
         employee.OnFinishedTask -= OnEmployeeFinishedTask;
+        employee.OnEventStarted -= OnEventStarted;
     }
 
     private void OnDestroy()
     {
         foreach (var employee in _employees)
         {
-            employee.OnLeave -= OnEmployeeLeave;
-            employee.OnPaid -= OnEmployeePaid;
-            employee.OnFinishedTask -= OnEmployeeFinishedTask;
+            Unsubscribe(employee);
         }
         _employees.Clear();
     }

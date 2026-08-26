@@ -115,9 +115,14 @@ public class Employee: InteractiveObject
         TryStartEvent();
     }
 
+    public void SetMaxProgress(int value)
+    {
+        _maxProgress = value;
+    }
+
     private void TryStartEvent()
     {
-        if (Random.value > 0.1f) return;
+        if (Random.Range(0, 10) < 8) return;
         switch (_moodCoefficient)
         {
             case <= 2:
@@ -148,7 +153,6 @@ public class Employee: InteractiveObject
 
     private void StartDisadvantageEvent()
     {
-        Debug.Log($"{ShownForm.Name} started disadvantage event");
         switch (Disadvantage)
         {
             case DisadvantageType.FartGuy:
@@ -158,7 +162,7 @@ public class Employee: InteractiveObject
                 OnEventStarted?.Invoke(this, EventType.Scream);
                 break;
             case DisadvantageType.LowEfficiency:
-                _maxProgress = 60;
+                OnEventStarted?.Invoke(this, EventType.LowEfficiency);
                 break;
             case DisadvantageType.Sick:
                 OnEventStarted?.Invoke(this, EventType.Sneeze);
@@ -174,11 +178,10 @@ public class Employee: InteractiveObject
 
     private void StartAdvantageEvent()
     {
-        Debug.Log($"{ShownForm.Name} started advantage event");
         switch (Advantage)
         {
             case AdvantageType.HighEfficiency:
-                _maxProgress = 10;
+                OnEventStarted?.Invoke(this, EventType.HighEfficiency);
                 break;
             case AdvantageType.JBL:
                 OnEventStarted?.Invoke(this, EventType.Music);
