@@ -108,13 +108,57 @@ public class Employee: InteractiveObject
         _currentProgress += timeDelta;
         if (!(_currentProgress >= _maxProgress)) return;
         _currentProgress = 0;
+        
         FinishTask();
+        
+        TryStartEvent();
+    }
+
+    private void TryStartEvent()
+    {
+        if (Random.value > 0.1f) return;
+        switch (_moodCoefficient)
+        {
+            case <= 2:
+                StartTraitEvent();
+                break;
+            case <= 5:
+                StartDisadvantageEvent();
+                break;
+            case >= 8 and <= 10:
+                StartAdvantageEvent();
+                break;
+        }
+    }
+
+    private void StartTraitEvent()
+    {
+        Debug.Log($"{ShownForm.Name} started trait event");
+    }
+
+    private void StartDisadvantageEvent()
+    {
+        Debug.Log($"{ShownForm.Name} started disadvantage event");
+        if (Disadvantage == DisadvantageType.LowEfficiency)
+        {
+            _maxProgress = 60;
+        }
+    }
+
+    private void StartAdvantageEvent()
+    {
+        Debug.Log($"{ShownForm.Name} started advantage event");
+        if (Advantage == AdvantageType.HighEfficiency)
+        {
+            _maxProgress = 10;
+        }
     }
 
     private void FinishTask()
     {
         OnPaid?.Invoke(this, IsLying() ? 0 : 100);
         OnFinishedTask?.Invoke(this);
+        _maxProgress = 30;
     }
 
     public void SetComputer(Computer computer) => _computer = computer;

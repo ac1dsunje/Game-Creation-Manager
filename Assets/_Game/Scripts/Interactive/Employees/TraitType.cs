@@ -12,6 +12,7 @@ public enum DisadvantageType
     FartGuy = 0,
     Sick = 1,
     Loud = 2,
+    LowEfficiency = 3
 }
 
 public enum AdvantageType
