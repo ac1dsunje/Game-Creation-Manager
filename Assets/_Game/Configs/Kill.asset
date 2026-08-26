@@ -15,10 +15,10 @@ MonoBehaviour:
   <EventType>k__BackingField: 5
   <Reactions>k__BackingField:
   - <Trait>k__BackingField: 0
-    <MoodChange>k__BackingField: 0
+    <MoodChange>k__BackingField: 2
   - <Trait>k__BackingField: 1
-    <MoodChange>k__BackingField: 0
+    <MoodChange>k__BackingField: -1
   - <Trait>k__BackingField: 2
-    <MoodChange>k__BackingField: 0
+    <MoodChange>k__BackingField: -1
   <ChangeProgress>k__BackingField: 0
   <KillAmount>k__BackingField: 0
