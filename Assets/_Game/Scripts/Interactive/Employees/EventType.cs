@@ -10,5 +10,6 @@ public enum EventType
     Kill,
     HighEfficiency,
     LowEfficiency,
+    Insult,
 }
 }

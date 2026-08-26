@@ -66,8 +66,9 @@ public class Employee: InteractiveObject
     private bool IsLying() => Random.Range(0, 11) > _honestCoefficient;
 
     public void Fire() => Leave();
+    public void Kill() => Leave();
 
-    public void GiveMoney(int value)
+    public void GiveSalary(int value)
     {
         if (DidntGetPaid(value))
         {
@@ -171,7 +172,7 @@ public class Employee: InteractiveObject
                 OnEventStarted?.Invoke(this, EventType.Cry);
                 break;
             case DisadvantageType.HeartProblems:
-                Leave();
+                OnEventStarted?.Invoke(this, EventType.Insult);
                 break;
         }
     }

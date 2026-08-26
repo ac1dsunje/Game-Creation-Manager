@@ -64,6 +64,9 @@ public class WorkingRoom: MonoBehaviour
                 break;
             case EventType.Kill:
                 break;
+            case EventType.Insult:
+                employee.Kill();
+                break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(eventType), eventType, null);
         }
@@ -76,7 +79,7 @@ public class WorkingRoom: MonoBehaviour
 
     private void OnEmployeeFinishedTask(Employee employee)
     {
-        employee.GiveMoney(_boss.TakeMoney());
+        employee.GiveSalary(_boss.TakeMoney());
     }
 
     private void OnEmployeePaid(Employee employee, int value)
