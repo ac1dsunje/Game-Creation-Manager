@@ -19,7 +19,18 @@ public class Form
         Age = age;
     }
 
-    private List<string> _names = new() {"John Doe", "Nigga", "1e", "2", "3", "4",
-        "5e", "John D6oe", "Joh7n Doe", "Jo8hn Doe"};
+    private List<string> _names = new() 
+    {
+        "Alexander", "Anastasia", "Andrew", "Anna", "Anton", "Arina", "Arthur", "Barbara", "Benjamin", "Catherine",
+        "Charles", "Christina", "Christopher", "Daniel", "David", "Diana", "Dmitry", "Edward", "Elena", "Elizabeth",
+        "Emily", "Emma", "Eric", "Eugene", "Felix", "Francesca", "Frank", "Gabriel", "George", "Grace",
+        "Gregory", "Hannah", "Henry", "Igor", "Isabella", "Ivan", "Jack", "Jacob", "James", "Jennifer",
+        "Jessica", "John", "Jonathan", "Joseph", "Julia", "Karen", "Katherine", "Kevin", "Kirill", "Laura",
+        "Leonard", "Lily", "Lisa", "Lucas", "Lydia", "Maria", "Mark", "Martha", "Martin", "Matthew",
+        "Maxim", "Michael", "Michelle", "Mikhail", "Natalie", "Nathan", "Nicholas", "Nicole", "Nikita", "Olga",
+        "Oliver", "Patricia", "Patrick", "Paul", "Peter", "Philip", "Rachel", "Richard", "Robert", "Roman",
+        "Samantha", "Samuel", "Sarah", "Sergey", "Sophia", "Stephanie", "Steven", "Tatiana", "Thomas", "Timothy",
+        "Valentina", "Vasily", "Victoria", "Vladimir", "William", "Yulia", "Zachary"
+    };
 }
 }

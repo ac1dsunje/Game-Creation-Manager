@@ -10,6 +10,12 @@ public class Computer: InteractiveObject
     public bool IsOn { get; private set; }
     public bool IsBusy { get; private set; }
 
+    protected override void Awake()
+    {
+        base.Awake();
+        Off();
+    }
+
     public void SetBusy(bool state) => IsBusy = state;
 
     public void Off()
