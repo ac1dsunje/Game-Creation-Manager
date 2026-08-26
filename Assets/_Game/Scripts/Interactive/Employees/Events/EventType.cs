@@ -1,4 +1,4 @@
-﻿namespace _Game.Scripts.Interactive.Employees
+﻿namespace _Game.Scripts.Interactive.Employees.Events
 {
 public enum EventType
 {

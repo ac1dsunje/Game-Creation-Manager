@@ -3,6 +3,7 @@ using _Game.Scripts.Interactive.Computers;
 using _Game.Scripts.Interactive.Employees.Forms;
 using UnityEngine;
 using UnityEngine.UI;
+using EventType = _Game.Scripts.Interactive.Employees.Events.EventType;
 using Random = UnityEngine.Random;
 
 namespace _Game.Scripts.Interactive.Employees

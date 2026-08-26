@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c6376ac1cf48479f10a14b6db69b38, type: 3}
+  m_Name: EventsDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Interactive.Employees.Events.EventsDatabase
+  <Events>k__BackingField:
+  - {fileID: 11400000, guid: 6dbb749263b724743b11ee26d64f4d6b, type: 2}
+  - {fileID: 11400000, guid: 9ae9eb52abb5cb84a86241b494690d15, type: 2}
+  - {fileID: 11400000, guid: 1d2a13d294140684e94b1a8d7d1f1d74, type: 2}
+  - {fileID: 11400000, guid: a15d1305c16e8a1408bb70214b0b197b, type: 2}
+  - {fileID: 11400000, guid: 0106b824dc04eda41bf8fbeae90b3e82, type: 2}
+  - {fileID: 11400000, guid: d7d098ef164f5b442b12ec30f868f4c4, type: 2}
+  - {fileID: 11400000, guid: 036175a83c2460641a7f11c524b7add1, type: 2}
+  - {fileID: 11400000, guid: 2c57e3f68ddce8d46b12ba0fa412dca8, type: 2}
+  - {fileID: 11400000, guid: 7d657fe82284f494f94c412abb0862d8, type: 2}

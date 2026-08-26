@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using _Game.Scripts.Boss;
 using _Game.Scripts.Interactive.Computers;
 using _Game.Scripts.Interactive.Employees;
+using _Game.Scripts.Interactive.Employees.Events;
 using UnityEngine;
 using VContainer;
-using EventType = _Game.Scripts.Interactive.Employees.EventType;
+using EventType = _Game.Scripts.Interactive.Employees.Events.EventType;
 
 namespace _Game.Scripts
 {
 public class WorkingRoom: MonoBehaviour
 {
     [SerializeField] private List<Computer> _computers;
-    
-    [SerializeField] private List<Employee> _employees = new();
+    [SerializeField] private EventsDatabase _eventsDatabase;
+    private readonly List<Employee> _employees = new();
 
     [Inject] private BossController _boss;
 
@@ -46,121 +45,31 @@ public class WorkingRoom: MonoBehaviour
     private void OnEventStarted(Employee employee, EventType eventType)
     {
         Debug.Log($"{eventType} started by {employee.ShownForm.Name}");
-        switch (eventType)
+
+        foreach (var eventConfig in _eventsDatabase.Events)
         {
-            case EventType.LowEfficiency:
-                employee.SetMaxProgress(60);
-                break;
-            case EventType.HighEfficiency:
-                employee.SetMaxProgress(10);
-                break;
-            case EventType.Scream:
-                foreach (var worker in _employees.Where(worker => worker != employee))
+            if (eventConfig.EventType != eventType)
+                continue;
+
+            foreach (var worker in _employees)
+            {
+                if (worker == employee)
                 {
-                    switch (worker.Trait)
-                    {
-                        case TraitType.Psycho:
-                            worker.AddMood(1);
-                            break;
-                        case TraitType.Narciss:
-                            worker.AddMood(-1);
-                            break;
-                        case TraitType.Worker:
-                            worker.AddMood(-1);
-                            break;
-                    }
+                    worker.SetMaxProgress(eventConfig.ChangeProgress);
+                    continue;
                 }
-                break;
-            case EventType.Fart:
-                foreach (var worker in _employees.Where(worker => worker != employee))
+
+                foreach (var reaction in eventConfig.Reactions)
                 {
-                    switch (worker.Trait)
-                    {
-                        case TraitType.Psycho:
-                            worker.AddMood(-1);
-                            break;
-                        case TraitType.Narciss:
-                            worker.AddMood(-1);
-                            break;
-                        case TraitType.Worker:
-                            worker.AddMood(-1);
-                            break;
-                    }
+                    if (reaction.Trait != worker.Trait)
+                        continue;
+
+                    worker.AddMood(reaction.MoodChange);
+                    break;
                 }
-                break;
-            case EventType.Sneeze:
-                foreach (var worker in _employees.Where(worker => worker != employee))
-                {
-                    switch (worker.Trait)
-                    {
-                        case TraitType.Psycho:
-                            worker.AddMood(-1);
-                            break;
-                        case TraitType.Narciss:
-                            worker.AddMood(-1);
-                            break;
-                        case TraitType.Worker:
-                            worker.AddMood(-1);
-                            break;
-                    }
-                }
-                break;
-            case EventType.Cry:
-                foreach (var worker in _employees.Where(worker => worker != employee))
-                {
-                    switch (worker.Trait)
-                    {
-                        case TraitType.Psycho:
-                            worker.AddMood(2);
-                            break;
-                        case TraitType.Narciss:
-                            worker.AddMood(1);
-                            break;
-                        case TraitType.Worker:
-                            worker.AddMood(0);
-                            break;
-                    }
-                }
-                break;
-            case EventType.Music:
-                foreach (var worker in _employees.Where(worker => worker != employee))
-                {
-                    switch (worker.Trait)
-                    {
-                        case TraitType.Psycho:
-                            worker.AddMood(-1);
-                            break;
-                        case TraitType.Narciss:
-                            worker.AddMood(-1);
-                            break;
-                        case TraitType.Worker:
-                            worker.AddMood(-1);
-                            break;
-                    }
-                }
-                break;
-            case EventType.Kill:
-                foreach (var worker in _employees.Where(worker => worker != employee))
-                {
-                    switch (worker.Trait)
-                    {
-                        case TraitType.Psycho:
-                            worker.AddMood(-1);
-                            break;
-                        case TraitType.Narciss:
-                            worker.AddMood(-1);
-                            break;
-                        case TraitType.Worker:
-                            worker.AddMood(-1);
-                            break;
-                    }
-                }
-                break;
-            case EventType.Insult:
-                employee.Kill();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(eventType), eventType, null);
+            }
+
+            break;
         }
     }
 
