@@ -106,18 +106,12 @@ public class Employee: InteractiveObject
         _currentProgress += timeDelta;
         if (!(_currentProgress >= _maxProgress)) return;
         _currentProgress = 0;
-        
-        if (IsLying())
-        {
-            if (Random.value > 0.5f)
-            {
-                OnPaid?.Invoke(this, 100);
-            }
-        }
-        else
-        {
-            OnPaid?.Invoke(this, 100);
-        }
+        FinishTask();
+    }
+
+    private void FinishTask()
+    {
+        OnPaid?.Invoke(this, IsLying() ? 0 : 100);
         OnFinishedTask?.Invoke(this);
     }
 
