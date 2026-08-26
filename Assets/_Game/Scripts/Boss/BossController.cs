@@ -5,9 +5,6 @@ namespace _Game.Scripts.Boss
 {
 public class BossController : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _renderer;
-    [SerializeField] private MovementController _movement;
-
     private PlayerInput _playerInput;
 
     private InteractiveObject _interactable;
@@ -28,11 +25,6 @@ public class BossController : MonoBehaviour
         _playerInput.Pressed -= ReadInput;
     }
 
-    private void Update()
-    {
-        TryFlip(_movement.HorizontalInput);
-    }
-
     private void ReadInput()
     {
         _interactable?.Interact();
@@ -40,16 +32,6 @@ public class BossController : MonoBehaviour
         {
             _interacted = !_interacted;
         }
-    }
-
-    private void TryFlip(float input)
-    {
-        _renderer.flipX = input switch
-        {
-            > 0f => false,
-            < 0f => true,
-            _ => _renderer.flipX
-        };
     }
 
     private void OnCollisionEnter2D(Collision2D other)
