@@ -3,6 +3,8 @@
 public enum TraitType
 {
     Psycho = 0,
+    Narciss = 1,
+    Worker = 2
 }
 
 public enum DisadvantageType

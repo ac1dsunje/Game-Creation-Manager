@@ -70,7 +70,18 @@ public class Employee: InteractiveObject
     {
         if (value == 0)
         {
-            AddMood(-1);
+            switch (Trait)
+            {
+                case TraitType.Psycho:
+                case TraitType.Narciss:
+                    AddMood(-1);
+                    break;
+                case TraitType.Worker:
+                    AddMood(0);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 
