@@ -29,6 +29,9 @@ public class Employee: InteractiveObject
     private float _maxProgress;
     
     private Computer _computer;
+    public event Action<Employee> OnDeath;
+    public event Action<Employee, float> OnPaid;
+    public event Action<Employee> OnFinishedTask;
     
     protected override void Awake()
     {
@@ -61,11 +64,7 @@ public class Employee: InteractiveObject
     
     private bool IsLying() => Random.Range(0, 11) > _honestCoefficient;
 
-    public void Fire()
-    {
-        _computer.SetBusy(false);
-        Destroy(gameObject);
-    }
+    public void Fire() => Die();
 
     private void Update()
     {
@@ -87,15 +86,23 @@ public class Employee: InteractiveObject
         {
             if (Random.value > 0.5f)
             {
-                Debug.Log($"{ShownForm.Name}: Task done");
+                OnPaid?.Invoke(this, 100f);
             }
         }
         else
         {
-            Debug.Log($"{ShownForm.Name}: Task done");
+            OnPaid?.Invoke(this, 100f);
         }
+        OnFinishedTask?.Invoke(this);
     }
 
     public void SetComputer(Computer computer) => _computer = computer;
+
+    private void Die()
+    {
+        _computer.SetBusy(false);
+        Destroy(gameObject);
+        OnDeath?.Invoke(this);
+    }
 }
 }

@@ -14,6 +14,9 @@ public class WorkingRoom: MonoBehaviour
     public void AddEmployee(Employee employee)
     {
         _employees.Add(employee);
+        employee.OnDeath += OnEmployeeLeave;
+        employee.OnPaid += OnEmployeePaid;
+        employee.OnFinishedTask += OnEmployeeFinishedTask;
 
         foreach (var computer in _computers)
         {
@@ -28,6 +31,32 @@ public class WorkingRoom: MonoBehaviour
             employee.SetComputer(computer);
             
             return;
+        }
+    }
+
+    private void OnEmployeeLeave(Employee employee)
+    {
+        Debug.Log($"{employee.ShownForm.Name} left");
+        _employees.Remove(employee);
+    }
+
+    private void OnEmployeeFinishedTask(Employee employee)
+    {
+        Debug.Log($"{employee.ShownForm.Name} finished");
+    }
+
+    private void OnEmployeePaid(Employee employee, float value)
+    {
+        Debug.Log($"{employee.ShownForm.Name} Paid {value}$");
+    }
+
+    private void OnDestroy()
+    {
+        foreach (var employee in _employees)
+        {
+            employee.OnDeath -= OnEmployeeLeave;
+            employee.OnPaid -= OnEmployeePaid;
+            employee.OnFinishedTask -= OnEmployeeFinishedTask;
         }
     }
 }
