@@ -68,7 +68,7 @@ public class Employee: InteractiveObject
 
     public void GiveMoney(int value)
     {
-        if (value == 0)
+        if (DidntGetPaid(value))
         {
             switch (Trait)
             {
@@ -84,6 +84,8 @@ public class Employee: InteractiveObject
             }
         }
     }
+
+    private bool DidntGetPaid(int value) => value == 0;
 
     private void AddMood(int value)
     {
