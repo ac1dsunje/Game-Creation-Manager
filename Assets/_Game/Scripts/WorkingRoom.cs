@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using _Game.Scripts.Boss;
 using _Game.Scripts.Interactive.Computers;
 using _Game.Scripts.Interactive.Employees;
@@ -24,6 +25,7 @@ public class WorkingRoom: MonoBehaviour
         employee.OnPaid += OnEmployeePaid;
         employee.OnFinishedTask += OnEmployeeFinishedTask;
         employee.OnEventStarted += OnEventStarted;
+        employee.OnMoneyGiven += OnMoneyGiven;
 
         foreach (var computer in _computers)
         {
@@ -53,6 +55,21 @@ public class WorkingRoom: MonoBehaviour
                 employee.SetMaxProgress(10);
                 break;
             case EventType.Scream:
+                foreach (var worker in _employees.Where(worker => worker != employee))
+                {
+                    switch (employee.Trait)
+                    {
+                        case TraitType.Psycho:
+                            worker.AddMood(1);
+                            break;
+                        case TraitType.Narciss:
+                            worker.AddMood(-1);
+                            break;
+                        case TraitType.Worker:
+                            worker.AddMood(-1);
+                            break;
+                    }
+                }
                 break;
             case EventType.Fart:
                 break;
@@ -93,12 +110,18 @@ public class WorkingRoom: MonoBehaviour
         Unsubscribe(employee);
     }
 
+    private void OnMoneyGiven()
+    {
+        _boss.Pay();
+    }
+
     private void Unsubscribe(Employee employee)
     {
         employee.OnLeave -= OnEmployeeLeave;
         employee.OnPaid -= OnEmployeePaid;
         employee.OnFinishedTask -= OnEmployeeFinishedTask;
         employee.OnEventStarted -= OnEventStarted;
+        employee.OnMoneyGiven -= OnMoneyGiven;
     }
 
     private void OnDestroy()

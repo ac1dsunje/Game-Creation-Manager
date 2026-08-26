@@ -25,6 +25,11 @@ public class BossController : MonoBehaviour
         Money += value;
     }
 
+    public void Pay()
+    {
+        Money -= 100;
+    }
+
     public int TakeMoney()
     {
         if (IsPaying)

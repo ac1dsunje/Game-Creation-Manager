@@ -10,17 +10,24 @@ public class EmployeeUI: MonoBehaviour
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private TextMeshProUGUI _experience;
     [SerializeField] private Button _hire;
+    [SerializeField] private Button _giveMoney;
     
     [SerializeField] private Employee _employee;
 
     private void Awake()
     {
         _hire.onClick.AddListener(Fire);
+        _giveMoney.onClick.AddListener(GiveMoney);
     }
 
     private void Fire()
     {
         _employee.Fire();
+    }
+
+    private void GiveMoney()
+    {
+        _employee.GiveMoney();
     }
 
     public void SetInfo(Form form)
@@ -32,6 +39,7 @@ public class EmployeeUI: MonoBehaviour
     private void OnDestroy()
     {
         _hire.onClick.RemoveAllListeners();
+        _giveMoney.onClick.RemoveAllListeners();
     }
 }
 }

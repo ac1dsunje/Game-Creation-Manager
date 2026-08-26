@@ -33,6 +33,7 @@ public class Employee: InteractiveObject
     public event Action<Employee, int> OnPaid;
     public event Action<Employee> OnFinishedTask;
     public event Action<Employee, EventType> OnEventStarted;
+    public event Action OnMoneyGiven;
     
     protected override void Awake()
     {
@@ -86,10 +87,29 @@ public class Employee: InteractiveObject
             }
         }
     }
+    
+    public void GiveMoney()
+    {
+        switch (Trait)
+        {
+            case TraitType.Psycho:
+                AddMood(1);
+                break;
+            case TraitType.Narciss:
+                AddMood(-1);
+                break;
+            case TraitType.Worker:
+                AddMood(1);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+        OnMoneyGiven?.Invoke();
+    }
 
     private bool DidntGetPaid(int value) => value == 0;
 
-    private void AddMood(int value)
+    public void AddMood(int value)
     {
         _moodCoefficient += value;
         _moodCoefficient = Mathf.Clamp(_moodCoefficient, 0, 10);
