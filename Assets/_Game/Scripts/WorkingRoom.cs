@@ -65,8 +65,11 @@ public class WorkingRoom: MonoBehaviour
     {
         foreach (var employee in _employees)
         {
-            DeleteEmployee(employee);
+            employee.OnLeave -= OnEmployeeLeave;
+            employee.OnPaid -= OnEmployeePaid;
+            employee.OnFinishedTask -= OnEmployeeFinishedTask;
         }
+        _employees.Clear();
     }
 }
 }
