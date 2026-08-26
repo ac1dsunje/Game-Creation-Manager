@@ -29,9 +29,10 @@ public class Employee: InteractiveObject
     private float _maxProgress;
     
     private Computer _computer;
-    public event Action<Employee> OnDeath;
+    public event Action<Employee> OnLeave;
     public event Action<Employee, int> OnPaid;
     public event Action<Employee> OnFinishedTask;
+    public event Action<Employee, EventType> OnEventStarted;
     
     protected override void Awake()
     {
@@ -64,7 +65,7 @@ public class Employee: InteractiveObject
     
     private bool IsLying() => Random.Range(0, 11) > _honestCoefficient;
 
-    public void Fire() => Die();
+    public void Fire() => Leave();
 
     public void GiveMoney(int value)
     {
@@ -133,24 +134,55 @@ public class Employee: InteractiveObject
 
     private void StartTraitEvent()
     {
-        Debug.Log($"{ShownForm.Name} started trait event");
+        switch (Trait)
+        {
+            case TraitType.Psycho:
+                OnEventStarted?.Invoke(this, EventType.Kill);
+                break;
+            case TraitType.Narciss or  TraitType.Worker:
+                break;
+        }
+
+        Leave();
     }
 
     private void StartDisadvantageEvent()
     {
         Debug.Log($"{ShownForm.Name} started disadvantage event");
-        if (Disadvantage == DisadvantageType.LowEfficiency)
+        switch (Disadvantage)
         {
-            _maxProgress = 60;
+            case DisadvantageType.FartGuy:
+                OnEventStarted?.Invoke(this, EventType.Fart);
+                break;
+            case DisadvantageType.Loud:
+                OnEventStarted?.Invoke(this, EventType.Scream);
+                break;
+            case DisadvantageType.LowEfficiency:
+                _maxProgress = 60;
+                break;
+            case DisadvantageType.Sick:
+                OnEventStarted?.Invoke(this, EventType.Sneeze);
+                break;
+            case DisadvantageType.CryBaby:
+                OnEventStarted?.Invoke(this, EventType.Cry);
+                break;
+            case DisadvantageType.HeartProblems:
+                Leave();
+                break;
         }
     }
 
     private void StartAdvantageEvent()
     {
         Debug.Log($"{ShownForm.Name} started advantage event");
-        if (Advantage == AdvantageType.HighEfficiency)
+        switch (Advantage)
         {
-            _maxProgress = 10;
+            case AdvantageType.HighEfficiency:
+                _maxProgress = 10;
+                break;
+            case AdvantageType.JBL:
+                OnEventStarted?.Invoke(this, EventType.Music);
+                break;
         }
     }
 
@@ -163,11 +195,11 @@ public class Employee: InteractiveObject
 
     public void SetComputer(Computer computer) => _computer = computer;
 
-    private void Die()
+    private void Leave()
     {
         _computer.SetBusy(false);
         Destroy(gameObject);
-        OnDeath?.Invoke(this);
+        OnLeave?.Invoke(this);
     }
 }
 }

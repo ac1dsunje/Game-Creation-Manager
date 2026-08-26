@@ -9,14 +9,17 @@ public enum TraitType
 
 public enum DisadvantageType
 {
-    FartGuy = 0,
-    Sick = 1,
-    Loud = 2,
-    LowEfficiency = 3
+    FartGuy,
+    Loud,
+    Sick,
+    LowEfficiency,
+    CryBaby,
+    HeartProblems,
 }
 
 public enum AdvantageType
 {
     HighEfficiency = 0,
+    JBL = 1,
 }
 }
