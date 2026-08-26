@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using _Game.Scripts.Boss;
 using _Game.Scripts.Interactive.Computers;
 using _Game.Scripts.Interactive.Employees;
 using UnityEngine;
+using VContainer;
 
 namespace _Game.Scripts
 {
@@ -10,6 +12,8 @@ public class WorkingRoom: MonoBehaviour
     [SerializeField] private List<Computer> _computers;
     
     [SerializeField] private List<Employee> _employees = new();
+
+    [Inject] private BossController _boss;
 
     public void AddEmployee(Employee employee)
     {
@@ -43,11 +47,13 @@ public class WorkingRoom: MonoBehaviour
     private void OnEmployeeFinishedTask(Employee employee)
     {
         Debug.Log($"{employee.ShownForm.Name} finished");
+        employee.GiveMoney(_boss.TakeMoney());
     }
 
-    private void OnEmployeePaid(Employee employee, float value)
+    private void OnEmployeePaid(Employee employee, int value)
     {
         Debug.Log($"{employee.ShownForm.Name} Paid {value}$");
+        _boss.AddMoney(value);
     }
 
     private void OnDestroy()

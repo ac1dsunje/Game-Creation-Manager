@@ -30,7 +30,7 @@ public class Employee: InteractiveObject
     
     private Computer _computer;
     public event Action<Employee> OnDeath;
-    public event Action<Employee, float> OnPaid;
+    public event Action<Employee, int> OnPaid;
     public event Action<Employee> OnFinishedTask;
     
     protected override void Awake()
@@ -66,6 +66,20 @@ public class Employee: InteractiveObject
 
     public void Fire() => Die();
 
+    public void GiveMoney(int value)
+    {
+        if (value == 0)
+        {
+            AddMood(-1);
+        }
+    }
+
+    private void AddMood(int value)
+    {
+        _moodCoefficient += value;
+        _moodCoefficient = Mathf.Clamp(_moodCoefficient, 0, 10);
+    }
+
     private void Update()
     {
         _ui.SetInfo(ShownForm);
@@ -86,12 +100,12 @@ public class Employee: InteractiveObject
         {
             if (Random.value > 0.5f)
             {
-                OnPaid?.Invoke(this, 100f);
+                OnPaid?.Invoke(this, 100);
             }
         }
         else
         {
-            OnPaid?.Invoke(this, 100f);
+            OnPaid?.Invoke(this, 100);
         }
         OnFinishedTask?.Invoke(this);
     }
