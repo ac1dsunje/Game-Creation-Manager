@@ -57,7 +57,7 @@ public class WorkingRoom: MonoBehaviour
             case EventType.Scream:
                 foreach (var worker in _employees.Where(worker => worker != employee))
                 {
-                    switch (employee.Trait)
+                    switch (worker.Trait)
                     {
                         case TraitType.Psycho:
                             worker.AddMood(1);
@@ -72,14 +72,89 @@ public class WorkingRoom: MonoBehaviour
                 }
                 break;
             case EventType.Fart:
+                foreach (var worker in _employees.Where(worker => worker != employee))
+                {
+                    switch (worker.Trait)
+                    {
+                        case TraitType.Psycho:
+                            worker.AddMood(-1);
+                            break;
+                        case TraitType.Narciss:
+                            worker.AddMood(-1);
+                            break;
+                        case TraitType.Worker:
+                            worker.AddMood(-1);
+                            break;
+                    }
+                }
                 break;
             case EventType.Sneeze:
+                foreach (var worker in _employees.Where(worker => worker != employee))
+                {
+                    switch (worker.Trait)
+                    {
+                        case TraitType.Psycho:
+                            worker.AddMood(-1);
+                            break;
+                        case TraitType.Narciss:
+                            worker.AddMood(-1);
+                            break;
+                        case TraitType.Worker:
+                            worker.AddMood(-1);
+                            break;
+                    }
+                }
                 break;
             case EventType.Cry:
+                foreach (var worker in _employees.Where(worker => worker != employee))
+                {
+                    switch (worker.Trait)
+                    {
+                        case TraitType.Psycho:
+                            worker.AddMood(2);
+                            break;
+                        case TraitType.Narciss:
+                            worker.AddMood(1);
+                            break;
+                        case TraitType.Worker:
+                            worker.AddMood(0);
+                            break;
+                    }
+                }
                 break;
             case EventType.Music:
+                foreach (var worker in _employees.Where(worker => worker != employee))
+                {
+                    switch (worker.Trait)
+                    {
+                        case TraitType.Psycho:
+                            worker.AddMood(-1);
+                            break;
+                        case TraitType.Narciss:
+                            worker.AddMood(-1);
+                            break;
+                        case TraitType.Worker:
+                            worker.AddMood(-1);
+                            break;
+                    }
+                }
                 break;
             case EventType.Kill:
+                foreach (var worker in _employees.Where(worker => worker != employee))
+                {
+                    switch (worker.Trait)
+                    {
+                        case TraitType.Psycho:
+                            worker.AddMood(-1);
+                            break;
+                        case TraitType.Narciss:
+                            worker.AddMood(-1);
+                            break;
+                        case TraitType.Worker:
+                            worker.AddMood(-1);
+                            break;
+                    }
+                }
                 break;
             case EventType.Insult:
                 employee.Kill();
