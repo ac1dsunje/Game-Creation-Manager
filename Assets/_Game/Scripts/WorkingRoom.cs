@@ -56,6 +56,7 @@ public class WorkingRoom: MonoBehaviour
                 if (worker == employee)
                 {
                     worker.SetMaxProgress(eventConfig.ChangeProgress);
+                    worker.SetEventIcon(eventConfig.Sprite);
                     continue;
                 }
 
@@ -65,6 +66,7 @@ public class WorkingRoom: MonoBehaviour
                         continue;
 
                     worker.AddMood(reaction.MoodChange);
+                    worker.SetEventIcon(reaction.Sprite);
                     break;
                 }
             }

@@ -15,6 +15,7 @@ public class EventConfig : ScriptableObject
     [field: SerializeField] public List<TraitReaction> Reactions { get; private set; } = new();
     [field: SerializeField] public int ChangeProgress { get; private set; }
     [field: SerializeField] public int KillAmount { get; private set; }
+    [field: SerializeField] public Sprite Sprite { get; private set; }
 }
 
 [Serializable]
@@ -23,5 +24,6 @@ public class TraitReaction
     [field: SerializeField] public TraitType Trait { get; private set; }
 
     [field: SerializeField] public int MoodChange { get; private set; }
+    [field: SerializeField] public Sprite Sprite { get; private set; }
 }
 }

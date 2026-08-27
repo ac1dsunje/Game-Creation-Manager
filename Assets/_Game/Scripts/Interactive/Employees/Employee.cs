@@ -70,6 +70,7 @@ public class Employee: InteractiveObject
 
     public void Fire() => Leave();
     public void Kill() => Leave();
+    public void SetEventIcon(Sprite sprite) => _computer.SetIcon(sprite);
 
     public void GiveSalary(int value)
     {
@@ -147,6 +148,7 @@ public class Employee: InteractiveObject
     private void TryStartEvent()
     {
         if (Random.Range(0, 10) < 8) return;
+        
         switch (_moodCoefficient)
         {
             case <= 2:
@@ -168,10 +170,9 @@ public class Employee: InteractiveObject
             case TraitType.Psycho:
                 OnEventStarted?.Invoke(this, EventType.Kill);
                 break;
-            case TraitType.Narciss or  TraitType.Worker:
+            case TraitType.Narciss or TraitType.Worker:
                 break;
         }
-
         Leave();
     }
 
