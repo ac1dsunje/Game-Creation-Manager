@@ -1,15 +1,17 @@
 ﻿using System;
 using _Game.Scripts.Interactive.Computers;
+using _Game.Scripts.Interactive.Employees.Events;
 using _Game.Scripts.Interactive.Employees.Forms;
+using _Game.Scripts.Interactive.Employees.Traits;
 using UnityEngine;
 using UnityEngine.UI;
-using EventType = _Game.Scripts.Interactive.Employees.Events.EventType;
 using Random = UnityEngine.Random;
 
 namespace _Game.Scripts.Interactive.Employees
 {
 public class Employee: InteractiveObject
 {
+    [SerializeField] private TraitsDatabase _traitsDatabase;
     // UI
     [SerializeField] private EmployeeUI _ui;
     [SerializeField] private Image _progressImage;
@@ -19,9 +21,9 @@ public class Employee: InteractiveObject
     [field: SerializeField] public Form ShownForm { get; private set; }
     [field: SerializeField] public Form RealForm { get; private set; }
     
-    [field: SerializeField] public TraitType Trait { get; private set; }
-    [field: SerializeField] public DisadvantageType Disadvantage { get; private set; }
-    [field: SerializeField] public AdvantageType Advantage { get; private set; }
+    [field: SerializeField] public PersonalityConfig Trait { get; private set; }
+    [field: SerializeField] public TraitConfig Disadvantage { get; private set; }
+    [field: SerializeField] public TraitConfig Advantage { get; private set; }
     
     // Working
     [SerializeField] private bool _liedAboutForm;
@@ -34,7 +36,7 @@ public class Employee: InteractiveObject
     public event Action<Employee> OnLeave;
     public event Action<Employee, int> OnPaid;
     public event Action<Employee> OnFinishedTask;
-    public event Action<Employee, EventType> OnEventStarted;
+    public event Action<Employee, EventConfig> OnEventStarted;
     public event Action OnMoneyGiven;
     
     protected override void Awake()
@@ -61,9 +63,9 @@ public class Employee: InteractiveObject
             RealForm : 
             new Form(Random.Range(RealForm.Efficiency, 6), Random.Range(RealForm.Age, 100));
 
-        Trait = (TraitType)Random.Range(0, Enum.GetValues(typeof(TraitType)).Length);
-        Disadvantage = (DisadvantageType)Random.Range(0, Enum.GetValues(typeof(DisadvantageType)).Length);
-        Advantage = (AdvantageType)Random.Range(0, Enum.GetValues(typeof(AdvantageType)).Length);
+        Trait = _traitsDatabase.Personalities[Random.Range(0, _traitsDatabase.Personalities.Length)];
+        Disadvantage = _traitsDatabase.Disadvantages[Random.Range(0, _traitsDatabase.Disadvantages.Length)];
+        Advantage = _traitsDatabase.Advantages[Random.Range(0, _traitsDatabase.Advantages.Length)];
     }
     
     private bool IsLying() => Random.Range(0, 11) > _honestCoefficient;
@@ -76,37 +78,13 @@ public class Employee: InteractiveObject
     {
         if (DidntGetPaid(value))
         {
-            switch (Trait)
-            {
-                case TraitType.Psycho:
-                case TraitType.Narciss:
-                    AddMood(-1);
-                    break;
-                case TraitType.Worker:
-                    AddMood(0);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            AddMood(Trait.OnSalaryReaction);
         }
     }
     
     public void GiveMoney()
     {
-        switch (Trait)
-        {
-            case TraitType.Psycho:
-                AddMood(1);
-                break;
-            case TraitType.Narciss:
-                AddMood(-1);
-                break;
-            case TraitType.Worker:
-                AddMood(1);
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
+        AddMood(Trait.OnMoneyReaction);
         OnMoneyGiven?.Invoke();
     }
 
@@ -165,53 +143,23 @@ public class Employee: InteractiveObject
 
     private void StartTraitEvent()
     {
-        switch (Trait)
+        if (Trait.EventConfig != null)
         {
-            case TraitType.Psycho:
-                OnEventStarted?.Invoke(this, EventType.Kill);
-                break;
-            case TraitType.Narciss or TraitType.Worker:
-                break;
+            OnEventStarted?.Invoke(this, Trait.EventConfig);
         }
         Leave();
     }
 
     private void StartDisadvantageEvent()
     {
-        switch (Disadvantage)
-        {
-            case DisadvantageType.FartGuy:
-                OnEventStarted?.Invoke(this, EventType.Fart);
-                break;
-            case DisadvantageType.Loud:
-                OnEventStarted?.Invoke(this, EventType.Scream);
-                break;
-            case DisadvantageType.LowEfficiency:
-                OnEventStarted?.Invoke(this, EventType.LowEfficiency);
-                break;
-            case DisadvantageType.Sick:
-                OnEventStarted?.Invoke(this, EventType.Sneeze);
-                break;
-            case DisadvantageType.CryBaby:
-                OnEventStarted?.Invoke(this, EventType.Cry);
-                break;
-            case DisadvantageType.HeartProblems:
-                OnEventStarted?.Invoke(this, EventType.Insult);
-                break;
-        }
+        if (Disadvantage.EventConfig == null) return;
+        OnEventStarted?.Invoke(this, Disadvantage.EventConfig);
     }
 
     private void StartAdvantageEvent()
     {
-        switch (Advantage)
-        {
-            case AdvantageType.HighEfficiency:
-                OnEventStarted?.Invoke(this, EventType.HighEfficiency);
-                break;
-            case AdvantageType.JBL:
-                OnEventStarted?.Invoke(this, EventType.Music);
-                break;
-        }
+        if (Advantage.EventConfig == null) return;
+        OnEventStarted?.Invoke(this, Advantage.EventConfig);
     }
 
     private void FinishTask()

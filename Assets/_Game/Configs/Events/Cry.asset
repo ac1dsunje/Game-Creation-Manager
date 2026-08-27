@@ -10,15 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6984185515b4d97846aa21a11146664, type: 3}
-  m_Name: Insult
+  m_Name: Cry
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Interactive.Employees.Events.EventConfig
-  <EventType>k__BackingField: 8
   <Reactions>k__BackingField:
-  - <Trait>k__BackingField: 0
+  - <Trait>k__BackingField: {fileID: 11400000, guid: e25328ddeb9e6a54cac161177ac2a856, type: 2}
     <MoodChange>k__BackingField: 2
-  - <Trait>k__BackingField: 1
-    <MoodChange>k__BackingField: -1
-  - <Trait>k__BackingField: 2
-    <MoodChange>k__BackingField: -1
+    <Sprite>k__BackingField: {fileID: 0}
+  - <Trait>k__BackingField: {fileID: 11400000, guid: 7ff1ab90aa8712340a6d8037edc9cac6, type: 2}
+    <MoodChange>k__BackingField: 1
+    <Sprite>k__BackingField: {fileID: 0}
+  - <Trait>k__BackingField: {fileID: 11400000, guid: 180b4e742585e454db4d13643695c082, type: 2}
+    <MoodChange>k__BackingField: 0
+    <Sprite>k__BackingField: {fileID: 0}
   <ChangeProgress>k__BackingField: 0
   <KillAmount>k__BackingField: 0
+  <Sprite>k__BackingField: {fileID: 0}

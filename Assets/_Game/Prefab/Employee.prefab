@@ -458,6 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Employee
   _visual: {fileID: 1462072345045801671}
+  _traitsDatabase: {fileID: 11400000, guid: ee7a48de240edc849988c3a83c212fe0, type: 2}
   _ui: {fileID: 6056727953403562374}
   _progressImage: {fileID: 5140360016028370668}
   _moodImage: {fileID: 8682576698806349712}
@@ -469,9 +470,9 @@ MonoBehaviour:
     <Name>k__BackingField: 
     <Age>k__BackingField: 0
     <Efficiency>k__BackingField: 0
-  <Trait>k__BackingField: 0
-  <Disadvantage>k__BackingField: 0
-  <Advantage>k__BackingField: 0
+  <Trait>k__BackingField: {fileID: 0}
+  <Disadvantage>k__BackingField: {fileID: 0}
+  <Advantage>k__BackingField: {fileID: 0}
   _liedAboutForm: 0
   _honestCoefficient: 0
   _moodCoefficient: 0

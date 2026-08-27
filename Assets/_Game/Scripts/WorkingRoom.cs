@@ -5,7 +5,6 @@ using _Game.Scripts.Interactive.Employees;
 using _Game.Scripts.Interactive.Employees.Events;
 using UnityEngine;
 using VContainer;
-using EventType = _Game.Scripts.Interactive.Employees.Events.EventType;
 
 namespace _Game.Scripts
 {
@@ -42,13 +41,13 @@ public class WorkingRoom: MonoBehaviour
         }
     }
 
-    private void OnEventStarted(Employee employee, EventType eventType)
+    private void OnEventStarted(Employee employee, EventConfig config)
     {
-        Debug.Log($"{eventType} started by {employee.ShownForm.Name}");
+        Debug.Log($"{config} started by {employee.ShownForm.Name}");
 
         foreach (var eventConfig in _eventsDatabase.Events)
         {
-            if (eventConfig.EventType != eventType)
+            if (eventConfig != config)
                 continue;
 
             foreach (var worker in _employees)
