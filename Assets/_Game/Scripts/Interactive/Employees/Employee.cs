@@ -13,6 +13,7 @@ public class Employee: InteractiveObject
     // UI
     [SerializeField] private EmployeeUI _ui;
     [SerializeField] private Image _progressImage;
+    [SerializeField] private Image _moodImage;
     
     // Form
     [field: SerializeField] public Form ShownForm { get; private set; }
@@ -124,6 +125,7 @@ public class Employee: InteractiveObject
             Work(Time.deltaTime);
         }
         _progressImage.fillAmount = _currentProgress / _maxProgress;
+        _moodImage.fillAmount = _moodCoefficient / 10f;
     }
 
     private void Work(float timeDelta)
