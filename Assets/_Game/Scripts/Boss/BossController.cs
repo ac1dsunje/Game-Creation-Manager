@@ -8,7 +8,7 @@ public class BossController : MonoBehaviour
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private MovementController _movement;
     [field: SerializeField] public int Money { get; private set; } = 100000;
-    [field: SerializeField] public bool IsPaying { get; private set; } = true;
+    private bool _isPaying = true;
 
     private PlayerInput _playerInput;
 
@@ -20,19 +20,18 @@ public class BossController : MonoBehaviour
         _playerInput = GetComponent<PlayerInput>();    
     }
 
-    public void AddMoney(int value)
+    public void TogglePaying()
     {
-        Money += value;
+        _isPaying = !_isPaying;
     }
 
-    public void Pay()
-    {
-        Money -= 100;
-    }
+    public void AddMoney(int value) => Money += value;
+
+    public void Pay() => Money -= 100;
 
     public int TakeMoney()
     {
-        if (IsPaying)
+        if (_isPaying)
         {
             Money -= 80;
             return 80;
