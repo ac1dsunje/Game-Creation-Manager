@@ -30,4 +30,5 @@ MonoBehaviour:
     <Sprite>k__BackingField: {fileID: 0}
   <ChangeProgress>k__BackingField: 0
   <KillAmount>k__BackingField: 0
+  <Leave>k__BackingField: 1
   <Sprite>k__BackingField: {fileID: 0}

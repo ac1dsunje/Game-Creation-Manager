@@ -143,11 +143,8 @@ public class Employee: InteractiveObject
 
     private void StartTraitEvent()
     {
-        if (Trait.EventConfig != null)
-        {
-            OnEventStarted?.Invoke(this, Trait.EventConfig);
-        }
-        Leave();
+        if (Trait.EventConfig == null) return;
+        OnEventStarted?.Invoke(this, Trait.EventConfig);
     }
 
     private void StartDisadvantageEvent()

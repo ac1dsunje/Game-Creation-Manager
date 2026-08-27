@@ -14,6 +14,7 @@ public class EventConfig : ScriptableObject
     [field: SerializeField] public List<TraitReaction> Reactions { get; private set; } = new();
     [field: SerializeField] public int ChangeProgress { get; private set; }
     [field: SerializeField] public int KillAmount { get; private set; }
+    [field: SerializeField] public bool Leave { get; private set; }
     [field: SerializeField] public Sprite Sprite { get; private set; }
 }
 

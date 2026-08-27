@@ -56,6 +56,10 @@ public class WorkingRoom: MonoBehaviour
                 {
                     worker.SetMaxProgress(eventConfig.ChangeProgress);
                     worker.SetEventIcon(eventConfig.Sprite);
+                    if (eventConfig.Leave)
+                    {
+                        worker.Fire();
+                    }
                     continue;
                 }
 
