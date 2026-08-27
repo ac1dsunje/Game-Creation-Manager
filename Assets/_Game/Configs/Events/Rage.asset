@@ -10,20 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6984185515b4d97846aa21a11146664, type: 3}
-  m_Name: Music
+  m_Name: Rage
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Interactive.Employees.Events.EventConfig
   <Reactions>k__BackingField:
-  - <Trait>k__BackingField: {fileID: 11400000, guid: e25328ddeb9e6a54cac161177ac2a856, type: 2}
+  - <Trait>k__BackingField: {fileID: 11400000, guid: 7ff1ab90aa8712340a6d8037edc9cac6, type: 2}
     <MoodChange>k__BackingField: 1
     <Sprite>k__BackingField: {fileID: 0}
-  - <Trait>k__BackingField: {fileID: 11400000, guid: 7ff1ab90aa8712340a6d8037edc9cac6, type: 2}
+  - <Trait>k__BackingField: {fileID: 11400000, guid: 9923cc08bfc4e4b4b805726bcb2724d1, type: 2}
     <MoodChange>k__BackingField: -1
     <Sprite>k__BackingField: {fileID: 0}
   - <Trait>k__BackingField: {fileID: 11400000, guid: 2146ce460abaf794e9b742d3153ad59b, type: 2}
     <MoodChange>k__BackingField: -1
-    <Sprite>k__BackingField: {fileID: 0}
-  - <Trait>k__BackingField: {fileID: 11400000, guid: 51a699e9697726747add92311b6e5aed, type: 2}
-    <MoodChange>k__BackingField: 2
     <Sprite>k__BackingField: {fileID: 0}
   <ChangeProgress>k__BackingField: 0
   <KillAmount>k__BackingField: 0

@@ -15,8 +15,15 @@ MonoBehaviour:
   <Personalities>k__BackingField:
   - {fileID: 11400000, guid: 7ff1ab90aa8712340a6d8037edc9cac6, type: 2}
   - {fileID: 11400000, guid: e25328ddeb9e6a54cac161177ac2a856, type: 2}
-  - {fileID: 11400000, guid: 180b4e742585e454db4d13643695c082, type: 2}
+  - {fileID: 11400000, guid: 9923cc08bfc4e4b4b805726bcb2724d1, type: 2}
+  - {fileID: 11400000, guid: 2146ce460abaf794e9b742d3153ad59b, type: 2}
+  - {fileID: 11400000, guid: 51a699e9697726747add92311b6e5aed, type: 2}
+  - {fileID: 11400000, guid: 78136536c1f98de4a88bf82f944acf30, type: 2}
   <Disadvantages>k__BackingField:
   - {fileID: 11400000, guid: cb76263976ace1b4b8646535d0f1f06d, type: 2}
+  - {fileID: 11400000, guid: 05affaab069d26444b09442965907988, type: 2}
+  - {fileID: 11400000, guid: d0ed9c82b1f756e439ac9002cd50b6dc, type: 2}
+  - {fileID: 11400000, guid: 2aea49fc6c56a194aa011320eeadb3a9, type: 2}
   <Advantages>k__BackingField:
   - {fileID: 11400000, guid: a1dcdaa459a17d34f80dc412ee185c59, type: 2}
+  - {fileID: 11400000, guid: 01314def85adb154e8cf2d2e19a71827, type: 2}

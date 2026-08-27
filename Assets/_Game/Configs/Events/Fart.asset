@@ -16,10 +16,16 @@ MonoBehaviour:
   - <Trait>k__BackingField: {fileID: 11400000, guid: e25328ddeb9e6a54cac161177ac2a856, type: 2}
     <MoodChange>k__BackingField: -1
     <Sprite>k__BackingField: {fileID: 0}
-  - <Trait>k__BackingField: {fileID: 11400000, guid: 7ff1ab90aa8712340a6d8037edc9cac6, type: 2}
-    <MoodChange>k__BackingField: 0
+  - <Trait>k__BackingField: {fileID: 11400000, guid: 2146ce460abaf794e9b742d3153ad59b, type: 2}
+    <MoodChange>k__BackingField: -1
     <Sprite>k__BackingField: {fileID: 0}
-  - <Trait>k__BackingField: {fileID: 11400000, guid: 180b4e742585e454db4d13643695c082, type: 2}
+  - <Trait>k__BackingField: {fileID: 11400000, guid: 9923cc08bfc4e4b4b805726bcb2724d1, type: 2}
+    <MoodChange>k__BackingField: -1
+    <Sprite>k__BackingField: {fileID: 0}
+  - <Trait>k__BackingField: {fileID: 11400000, guid: 7ff1ab90aa8712340a6d8037edc9cac6, type: 2}
+    <MoodChange>k__BackingField: 1
+    <Sprite>k__BackingField: {fileID: 0}
+  - <Trait>k__BackingField: {fileID: 11400000, guid: 78136536c1f98de4a88bf82f944acf30, type: 2}
     <MoodChange>k__BackingField: -1
     <Sprite>k__BackingField: {fileID: 0}
   <ChangeProgress>k__BackingField: 0
