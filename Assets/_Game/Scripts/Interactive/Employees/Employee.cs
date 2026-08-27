@@ -50,7 +50,7 @@ public class Employee: InteractiveObject
 
     private void InitializeStats()
     {
-        _honestCoefficient = Random.Range(0, 10);
+        _honestCoefficient = Random.Range(1, 10);
         
         _maxProgress = 30f;
         _liedAboutForm = IsLying();
