@@ -88,6 +88,8 @@ public class Employee: InteractiveObject
         OnMoneyGiven?.Invoke();
     }
 
+    public void Cheer() => AddMood(Trait.OnCheerReaction);
+
     private bool DidntGetPaid(int value) => value == 0;
 
     public void AddMood(int value)
