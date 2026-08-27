@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using _Game.Scripts.Boss;
 using _Game.Scripts.Interactive.Computers;
 using _Game.Scripts.Interactive.Employees;
@@ -41,15 +42,16 @@ public class WorkingRoom: MonoBehaviour
         }
     }
 
+    private bool CanStart(int amount) => (amount > 0 && amount > _employees.Count - 1) || (amount == 0);
+
     private void OnEventStarted(Employee employee, EventConfig config)
     {
+        if (!CanStart(config.ColleaguesAmount)) return;
+        
         Debug.Log($"{config} started by {employee.ShownForm.Name}");
 
-        foreach (var eventConfig in _eventsDatabase.Events)
+        foreach (var eventConfig in _eventsDatabase.Events.Where(eventConfig => eventConfig == config))
         {
-            if (eventConfig != config)
-                continue;
-
             foreach (var worker in _employees)
             {
                 if (worker == employee)
@@ -63,11 +65,8 @@ public class WorkingRoom: MonoBehaviour
                     continue;
                 }
 
-                foreach (var reaction in eventConfig.Reactions)
+                foreach (var reaction in eventConfig.Reactions.Where(reaction => reaction.Trait == worker.Trait))
                 {
-                    if (reaction.Trait != worker.Trait)
-                        continue;
-
                     worker.AddMood(reaction.MoodChange);
                     worker.SetEventIcon(reaction.Sprite);
                     break;
