@@ -125,9 +125,11 @@ public class Employee: InteractiveObject
 
     private void TryStartEvent()
     {
-        if (Random.Range(0, 10) < 8) return;
+        if (Random.Range(0, 10) < 7) return;
         
-        switch (_moodCoefficient)
+        var value = Random.Range(0, _moodCoefficient + 1);
+        
+        switch (value)
         {
             case <= 2:
                 StartTraitEvent();
