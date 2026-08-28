@@ -10,12 +10,10 @@ public class Form
 {
     [field: SerializeField] public string Name { get; private set; }
     [field: SerializeField] public int Age { get; private set; }
-    [field: SerializeField] public float Efficiency { get; private set; }
     
-    public Form(float efficiency, int age)
+    public Form(int age)
     {
         Name = _names[Random.Range(0, _names.Count)];
-        Efficiency = efficiency;
         Age = age;
     }
 

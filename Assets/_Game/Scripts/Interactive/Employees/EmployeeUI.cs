@@ -8,7 +8,6 @@ namespace _Game.Scripts.Interactive.Employees
 public class EmployeeUI: MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _name;
-    [SerializeField] private TextMeshProUGUI _experience;
     [SerializeField] private Button _hire;
     [SerializeField] private Button _giveMoney;
     [SerializeField] private Button _cheer;
@@ -30,7 +29,6 @@ public class EmployeeUI: MonoBehaviour
     public void SetInfo(Form form)
     {
         _name.text = form.Name;
-        _experience.text = form.Efficiency.ToString();
     }
 
     private void OnDestroy()

@@ -29,6 +29,7 @@ public class Employee: InteractiveObject
     [SerializeField] private bool _liedAboutForm;
     [SerializeField] private int _honestCoefficient;
     [SerializeField] private int _moodCoefficient;
+    [SerializeField] private float _defaultProgress = 15f;
     private float _currentProgress;
     private float _maxProgress;
 
@@ -56,16 +57,16 @@ public class Employee: InteractiveObject
     {
         _honestCoefficient = Random.Range(1, 10);
         
-        _maxProgress = 30f;
+        _maxProgress = _defaultProgress;
         _liedAboutForm = IsLying();
         
         _moodCoefficient = Random.Range(3, 8);
         
-        RealForm = new Form(Random.Range(1, 6), Random.Range(18, 100));
+        RealForm = new Form(Random.Range(18, 100));
 
         ShownForm = !_liedAboutForm? 
             RealForm : 
-            new Form(Random.Range(RealForm.Efficiency, 6), Random.Range(RealForm.Age, 100));
+            new Form(Random.Range(RealForm.Age, 100));
 
         Trait = _traitsDatabase.Personalities[Random.Range(0, _traitsDatabase.Personalities.Length)];
         Disadvantage = _traitsDatabase.Disadvantages[Random.Range(0, _traitsDatabase.Disadvantages.Length)];
@@ -172,7 +173,7 @@ public class Employee: InteractiveObject
         TaskDone++;
         OnPaid?.Invoke(this, earn);
         OnFinishedTask?.Invoke(this);
-        _maxProgress = 30;
+        _maxProgress = _defaultProgress;
     }
 
     public void SetComputer(Computer computer) => _computer = computer;
