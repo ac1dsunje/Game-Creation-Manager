@@ -10,7 +10,6 @@ public class FormsUI: MonoBehaviour
 {
     [SerializeField] private GameObject _slot;
     [SerializeField] private Transform _container;
-    [SerializeField] private Button _setPayment;
     
     private readonly List<FormSlotUI> _slots = new();
     
@@ -26,12 +25,6 @@ public class FormsUI: MonoBehaviour
         
         _workingRoom = workingRoom;
         _bossController = boss;
-        _setPayment.onClick.AddListener(TogglePayment);
-    }
-
-    private void TogglePayment()
-    {
-        _bossController.TogglePaying();
     }
 
     private void CreateFormUI(Employee employee)
@@ -65,7 +58,6 @@ public class FormsUI: MonoBehaviour
             slot.OnEmployeeAccepted -= ApplyForm;
             slot.OnEmployeeDeclined -= DeclineForm;
         }
-        _setPayment.onClick.RemoveAllListeners();
     }
 }
 }

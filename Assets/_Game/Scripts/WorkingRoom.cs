@@ -24,7 +24,6 @@ public class WorkingRoom: MonoBehaviour
         _employees.Add(employee);
         employee.OnLeave += OnEmployeeLeave;
         employee.OnPaid += OnEmployeePaid;
-        employee.OnFinishedTask += OnEmployeeFinishedTask;
         employee.OnEventStarted += OnEventStarted;
         employee.OnMoneyGiven += OnMoneyGiven;
 
@@ -85,11 +84,6 @@ public class WorkingRoom: MonoBehaviour
         DeleteEmployee(employee);
     }
 
-    private void OnEmployeeFinishedTask(Employee employee)
-    {
-        employee.GiveSalary(_boss.TakeMoney());
-    }
-
     private void OnEmployeePaid(Employee employee, int value)
     {
         _boss.AddMoney(value);
@@ -110,7 +104,6 @@ public class WorkingRoom: MonoBehaviour
     {
         employee.OnLeave -= OnEmployeeLeave;
         employee.OnPaid -= OnEmployeePaid;
-        employee.OnFinishedTask -= OnEmployeeFinishedTask;
         employee.OnEventStarted -= OnEventStarted;
         employee.OnMoneyGiven -= OnMoneyGiven;
     }

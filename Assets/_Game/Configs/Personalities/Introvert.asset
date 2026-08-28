@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: Introvert
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Interactive.Employees.Traits.PersonalityConfig
   <EventConfig>k__BackingField: {fileID: 0}
-  <OnMoneyReaction>k__BackingField: 1
-  <OnSalaryReaction>k__BackingField: 1
-  <OnLostSalaryReaction>k__BackingField: -1
+  <OnMoneyReaction>k__BackingField: 2
   <OnCheerReaction>k__BackingField: 1

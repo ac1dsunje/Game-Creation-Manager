@@ -40,7 +40,6 @@ public class Employee: InteractiveObject
     private Computer _computer;
     public event Action<Employee> OnLeave;
     public event Action<Employee, int> OnPaid;
-    public event Action<Employee> OnFinishedTask;
     public event Action<Employee, EventConfig> OnEventStarted;
     public event Action OnMoneyGiven;
     
@@ -82,18 +81,6 @@ public class Employee: InteractiveObject
     public void Fire() => Leave();
     public void Kill() => Leave();
     public void SetEventIcon(Sprite sprite) => _computer.SetIcon(sprite);
-
-    public void GiveSalary(int value)
-    {
-        if (GotSalary(value))
-        {
-            AddMood(Trait.OnSalaryReaction);
-        }
-        else
-        {
-            AddMood(Trait.OnLostSalaryReaction);
-        }
-    }
     
     public void GiveMoney()
     {
@@ -103,12 +90,10 @@ public class Employee: InteractiveObject
 
     public void Cheer() => AddMood(Trait.OnCheerReaction);
 
-    private bool GotSalary(int value) => value > 0;
-
     public void AddMood(int value)
     {
         _moodCoefficient += value;
-        _moodCoefficient = Mathf.Clamp(_moodCoefficient, 0, 10);
+        _moodCoefficient = Mathf.Clamp(_moodCoefficient, 0, 9);
     }
 
     private void Update()
@@ -133,10 +118,7 @@ public class Employee: InteractiveObject
         TryStartEvent();
     }
 
-    public void SetMaxProgress(int value)
-    {
-        _maxProgress = value;
-    }
+    public void SetMaxProgress(int value) => _maxProgress = value;
 
     private void TryStartEvent()
     {
@@ -179,8 +161,8 @@ public class Employee: InteractiveObject
         var earn = IsLying() ? 0 : 100;
         MoneyEarned += earn;
         TaskDone++;
+        AddMood(-1);
         OnPaid?.Invoke(this, earn);
-        OnFinishedTask?.Invoke(this);
         _maxProgress = _defaultProgress;
     }
 
