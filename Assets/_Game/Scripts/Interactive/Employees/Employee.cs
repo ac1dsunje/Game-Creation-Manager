@@ -13,7 +13,6 @@ public class Employee: InteractiveObject
 {
     [SerializeField] private TraitsDatabase _traitsDatabase;
     // UI
-    [SerializeField] private EmployeeUI _ui;
     [SerializeField] private Image _progressImage;
     [SerializeField] private Image _moodImage;
     
@@ -60,11 +59,11 @@ public class Employee: InteractiveObject
         
         _maxProgress = _defaultProgress;
         
-        RealForm = new Form(Random.Range(18, 100));
+        RealForm = new Form(Random.Range(18, 45));
 
         ShownForm = !IsLying()? 
             RealForm : 
-            new Form(Random.Range(RealForm.Age, 100));
+            new Form(Random.Range(RealForm.Age, 45));
 
         Trait = _traitsDatabase.Personalities[Random.Range(0, _traitsDatabase.Personalities.Length)];
         Disadvantage = _traitsDatabase.Disadvantages[Random.Range(0, _traitsDatabase.Disadvantages.Length)];
@@ -79,10 +78,7 @@ public class Employee: InteractiveObject
 
     public void Fire() => Leave();
     public void Kill() => Leave();
-    public void SetEventIcon(Sprite sprite)
-    {
-        _computer.SetIcon(sprite);
-    }
+    public void SetEventIcon(Sprite sprite) => _computer.SetIcon(sprite);
 
     public void GiveMoney()
     {
@@ -100,7 +96,6 @@ public class Employee: InteractiveObject
 
     private void Update()
     {
-        _ui.SetInfo(ShownForm);
         if (_computer != null && _computer.IsOn)
         {
             Work(Time.deltaTime);

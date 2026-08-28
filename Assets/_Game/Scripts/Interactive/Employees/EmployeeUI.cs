@@ -21,12 +21,17 @@ public class EmployeeUI: MonoBehaviour
         _cheer.onClick.AddListener(Cheer);
     }
 
+    private void Update()
+    {
+        SetInfo(_employee.ShownForm);
+    }
+
     private void Fire() => _employee.Fire();
 
     private void GiveMoney() => _employee.GiveMoney();
     private void Cheer() => _employee.Cheer();
 
-    public void SetInfo(Form form)
+    private void SetInfo(Form form)
     {
         _name.text = form.Name;
     }
