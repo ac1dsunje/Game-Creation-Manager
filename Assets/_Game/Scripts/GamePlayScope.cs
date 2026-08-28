@@ -1,4 +1,5 @@
 ﻿using _Game.Scripts.Boss;
+using _Game.Scripts.Interactive.Analytics;
 using _Game.Scripts.Interactive.Employees;
 using _Game.Scripts.Interactive.Employees.Forms;
 using _Game.Scripts.Interactive.Tables;
@@ -15,6 +16,7 @@ public class GamePlayScope: LifetimeScope
         builder.RegisterComponentInHierarchy<FormsUI>();
         builder.RegisterComponentInHierarchy<WorkingRoom>();
         builder.RegisterComponentInHierarchy<Table>();
+        builder.RegisterComponentInHierarchy<AnalyticsTable>();
         builder.RegisterComponentInHierarchy<BossController>();
     }
 }
