@@ -29,6 +29,7 @@ MonoBehaviour:
     <MoodChange>k__BackingField: -1
     <Sprite>k__BackingField: {fileID: 0}
   <ChangeProgress>k__BackingField: 0
+  <ColleaguesAmount>k__BackingField: 0
   <KillAmount>k__BackingField: 0
   <Leave>k__BackingField: 1
-  <Sprite>k__BackingField: {fileID: 0}
+  <Sprite>k__BackingField: {fileID: 5515736023078265370, guid: 8c79acb9ec0b8fb41aab51d3eb66b9ff, type: 3}
