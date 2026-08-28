@@ -7,5 +7,6 @@ public class PersonalityConfig: TraitConfig
 {
     [field: SerializeField, Range(-1, 2)] public int OnMoneyReaction { get; private set; }
     [field: SerializeField, Range(-1, 2)] public int OnCheerReaction { get; private set; }
+    [field: SerializeField, Range(-1, 2)] public int OnFinishedTaskReaction { get; private set; } = -1;
 }
 }

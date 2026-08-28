@@ -75,7 +75,7 @@ public class Employee: InteractiveObject
     private bool IsLying()
     {
         if (Random.Range(0, 11) > _honestCoefficient) return true;
-        return Random.Range(0, 11) > _moodCoefficient;
+        return Random.Range(0, 12) > _moodCoefficient;
     }
 
     public void Fire() => Leave();
@@ -87,16 +87,16 @@ public class Employee: InteractiveObject
 
     public void GiveMoney()
     {
-        AddMood(Trait.OnMoneyReaction);
+        ChangeMood(Trait.OnMoneyReaction);
         OnMoneyGiven?.Invoke();
     }
 
-    public void Cheer() => AddMood(Trait.OnCheerReaction);
+    public void Cheer() => ChangeMood(Trait.OnCheerReaction);
 
-    public void AddMood(int value)
+    public void ChangeMood(int value)
     {
         _moodCoefficient += value;
-        _moodCoefficient = Mathf.Clamp(_moodCoefficient, 0, 9);
+        _moodCoefficient = Mathf.Clamp(_moodCoefficient, 0, 10);
     }
 
     private void Update()
@@ -121,7 +121,7 @@ public class Employee: InteractiveObject
         TryStartEvent();
     }
 
-    public void SetMaxProgress(int value) => _maxProgress = value;
+    public void SetMaxProgressScale(float value) => _maxProgress = value * _maxProgress;
 
     private void TryStartEvent()
     {
@@ -166,7 +166,7 @@ public class Employee: InteractiveObject
         var earn = IsLying() ? 0 : 100;
         MoneyEarned += earn;
         TaskDone++;
-        AddMood(-1);
+        ChangeMood(Trait.OnFinishedTaskReaction);
         OnPaid?.Invoke(this, earn);
         _maxProgress = _defaultProgress;
     }

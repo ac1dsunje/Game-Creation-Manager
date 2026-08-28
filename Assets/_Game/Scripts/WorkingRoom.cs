@@ -57,7 +57,7 @@ public class WorkingRoom: MonoBehaviour
             {
                 if (worker == employee)
                 {
-                    worker.SetMaxProgress(eventConfig.ChangeProgress);
+                    worker.SetMaxProgressScale(eventConfig.ProgressScale);
                     worker.SetEventIcon(eventConfig.Sprite);
                     if (eventConfig.Leave)
                     {
@@ -68,7 +68,7 @@ public class WorkingRoom: MonoBehaviour
 
                 foreach (var reaction in eventConfig.Reactions.Where(reaction => reaction.Trait == worker.Trait))
                 {
-                    worker.AddMood(reaction.MoodChange);
+                    worker.ChangeMood(reaction.MoodChange);
                     worker.SetEventIcon(reaction.Sprite);
                     break;
                 }

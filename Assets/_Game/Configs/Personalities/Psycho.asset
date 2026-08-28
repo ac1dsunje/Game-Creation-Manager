@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Interactive.Employees.Traits.PersonalityConfig
   <EventConfig>k__BackingField: {fileID: 11400000, guid: d7d098ef164f5b442b12ec30f868f4c4, type: 2}
   <OnMoneyReaction>k__BackingField: 1
-  <OnSalaryReaction>k__BackingField: 1
-  <OnLostSalaryReaction>k__BackingField: -2
   <OnCheerReaction>k__BackingField: 0
+  <OnFinishedTaskReaction>k__BackingField: -1

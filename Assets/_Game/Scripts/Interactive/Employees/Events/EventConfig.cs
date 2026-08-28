@@ -12,7 +12,7 @@ namespace _Game.Scripts.Interactive.Employees.Events
 public class EventConfig : ScriptableObject
 {
     [field: SerializeField] public List<TraitReaction> Reactions { get; private set; } = new();
-    [field: SerializeField] public int ChangeProgress { get; private set; }
+    [field: SerializeField, Range(0.1f, 3f)] public float ProgressScale { get; private set; }
     [field: SerializeField] public int ColleaguesAmount { get; private set; }
     [field: SerializeField] public int KillAmount { get; private set; }
     [field: SerializeField] public bool Leave { get; private set; }
