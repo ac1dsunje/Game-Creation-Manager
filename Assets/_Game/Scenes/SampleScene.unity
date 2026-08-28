@@ -4261,7 +4261,9 @@ MonoBehaviour:
   _traitsDatabase: {fileID: 11400000, guid: ee7a48de240edc849988c3a83c212fe0, type: 2}
   _gamePlayConfig:
     <StartMoney>k__BackingField: 1000
-    <MaxTime>k__BackingField: 300
+    <QuotaConfigs>k__BackingField:
+    - <MaxTime>k__BackingField: 300
+      <MoneyGoal>k__BackingField: 3000
   _eventsDatabase: {fileID: 11400000, guid: aa575f161ecd9674c9d539ebc3148936, type: 2}
 --- !u!1 &1693365479
 GameObject:

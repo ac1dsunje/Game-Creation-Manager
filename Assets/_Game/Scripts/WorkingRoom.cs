@@ -18,6 +18,9 @@ public class WorkingRoom: MonoBehaviour
 
     [Inject] private BossController _boss;
     [Inject] private EventsDatabase _eventsDatabase;
+    [Inject] private GamePlayConfig _config;
+    
+    private float _timer;
 
     public void AddEmployee(Employee employee)
     {
@@ -40,6 +43,15 @@ public class WorkingRoom: MonoBehaviour
             employee.SetComputer(computer);
             
             return;
+        }
+    }
+
+    private void Update()
+    {
+        _timer += Time.deltaTime;
+        if (_timer >= _config.QuotaConfigs[0].MaxTime)
+        {
+            Debug.Log($"Time left! You earned {_boss.Money}$/{_config.QuotaConfigs[0].MoneyGoal}$");
         }
     }
 
