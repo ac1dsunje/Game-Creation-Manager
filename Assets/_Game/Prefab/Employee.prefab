@@ -86,7 +86,6 @@ GameObject:
   - component: {fileID: 1952918445225823803}
   - component: {fileID: 6659333267377011642}
   - component: {fileID: 4063655227964923463}
-  - component: {fileID: 6056727953403562374}
   m_Layer: 5
   m_Name: Info
   m_TagString: Untagged
@@ -155,23 +154,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6056727953403562374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1462072345045801671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9a0452c5b6644929b53b2199b711f71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Interactive.Employees.EmployeeUI
-  _name: {fileID: 5023082839457944746}
-  _hire: {fileID: 5587362280972017556}
-  _giveMoney: {fileID: 75061085133905047}
-  _cheer: {fileID: 3091922176531076823}
-  _employee: {fileID: -124767027300631002}
 --- !u!1 &1867486171918431068
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,9 +340,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Employee
   _visual: {fileID: 1462072345045801671}
   _traitsDatabase: {fileID: 11400000, guid: ee7a48de240edc849988c3a83c212fe0, type: 2}
-  _ui: {fileID: 6056727953403562374}
-  _progressImage: {fileID: 5140360016028370668}
-  _moodImage: {fileID: 8682576698806349712}
   <ShownForm>k__BackingField:
     <Name>k__BackingField: 
     <Age>k__BackingField: 0
@@ -370,10 +349,9 @@ MonoBehaviour:
   <Trait>k__BackingField: {fileID: 0}
   <Disadvantage>k__BackingField: {fileID: 0}
   <Advantage>k__BackingField: {fileID: 0}
-  _liedAboutForm: 0
   _honestCoefficient: 0
-  _moodCoefficient: 0
   _defaultProgress: 15
+  <MaxMood>k__BackingField: 10
 --- !u!70 &5649015756037999042
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -895,6 +873,7 @@ GameObject:
   - component: {fileID: 396749155864685718}
   - component: {fileID: 7493191428985892952}
   - component: {fileID: 7455418148377281450}
+  - component: {fileID: 2700163761722348120}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -987,6 +966,25 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2700163761722348120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3754712613422540114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a0452c5b6644929b53b2199b711f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Interactive.Employees.EmployeeUI
+  _name: {fileID: 5023082839457944746}
+  _hire: {fileID: 5587362280972017556}
+  _giveMoney: {fileID: 75061085133905047}
+  _cheer: {fileID: 3091922176531076823}
+  _progressImage: {fileID: 5140360016028370668}
+  _moodImage: {fileID: 8682576698806349712}
+  _employee: {fileID: -124767027300631002}
 --- !u!1 &5501792848027979122
 GameObject:
   m_ObjectHideFlags: 0

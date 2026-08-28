@@ -4,7 +4,6 @@ using _Game.Scripts.Interactive.Employees.Events;
 using _Game.Scripts.Interactive.Employees.Forms;
 using _Game.Scripts.Interactive.Employees.Traits;
 using UnityEngine;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace _Game.Scripts.Interactive.Employees
@@ -12,9 +11,6 @@ namespace _Game.Scripts.Interactive.Employees
 public class Employee: InteractiveObject
 {
     [SerializeField] private TraitsDatabase _traitsDatabase;
-    // UI
-    [SerializeField] private Image _progressImage;
-    [SerializeField] private Image _moodImage;
     
     // Form
     [field: SerializeField] public Form ShownForm { get; private set; }
@@ -27,11 +23,11 @@ public class Employee: InteractiveObject
     // Working
     [SerializeField] private int _honestCoefficient;
     [SerializeField] private int _defaultProgress = 15;
-    [SerializeField] private int _maxMood = 10;
+    [field: SerializeField] public int MaxMood { get; private set; } = 10;
     
-    private int _moodCoefficient;
-    private float _currentProgress;
-    private float _maxProgress;
+    public int MoodCoefficient { get; private set; }
+    public float CurrentProgress { get; private set; }
+    public float MaxProgress { get; private set; }
 
     public bool IsHired => _computer != null;
     public int TaskDone { get; private set; }
@@ -55,9 +51,9 @@ public class Employee: InteractiveObject
     private void InitializeStats()
     {
         _honestCoefficient = Random.Range(1, 10);
-        _moodCoefficient = Random.Range(5, _maxMood);
+        MoodCoefficient = Random.Range(5, MaxMood);
         
-        _maxProgress = _defaultProgress;
+        MaxProgress = _defaultProgress;
         
         RealForm = new Form(Random.Range(18, 45));
 
@@ -73,7 +69,7 @@ public class Employee: InteractiveObject
     private bool IsLying()
     {
         if (Random.Range(0, 11) > _honestCoefficient) return true;
-        return Random.Range(0, 12) > _moodCoefficient;
+        return Random.Range(0, 12) > MoodCoefficient;
     }
 
     public void Fire() => Leave();
@@ -90,8 +86,8 @@ public class Employee: InteractiveObject
 
     public void ChangeMood(int value)
     {
-        _moodCoefficient += value;
-        _moodCoefficient = Mathf.Clamp(_moodCoefficient, 0, _maxMood);
+        MoodCoefficient += value;
+        MoodCoefficient = Mathf.Clamp(MoodCoefficient, 0, MaxMood);
     }
 
     private void Update()
@@ -100,28 +96,26 @@ public class Employee: InteractiveObject
         {
             Work(Time.deltaTime);
         }
-        _progressImage.fillAmount = _currentProgress / _maxProgress;
-        _moodImage.fillAmount = (float)_moodCoefficient / _maxMood;
     }
 
     private void Work(float timeDelta)
     {
-        _currentProgress += timeDelta;
-        if (!(_currentProgress >= _maxProgress)) return;
-        _currentProgress = 0;
+        CurrentProgress += timeDelta;
+        if (!(CurrentProgress >= MaxProgress)) return;
+        CurrentProgress = 0;
         
         FinishTask();
         
         TryStartEvent();
     }
 
-    public void SetMaxProgressScale(float value) => _maxProgress = value * _defaultProgress;
+    public void SetMaxProgressScale(float value) => MaxProgress = _defaultProgress / value;
 
     private void TryStartEvent()
     {
         if (Random.Range(0, 10) < 7) return;
         
-        var value = Random.Range(0, _moodCoefficient + 1);
+        var value = Random.Range(0, MoodCoefficient + 1);
         
         switch (value)
         {
@@ -162,7 +156,7 @@ public class Employee: InteractiveObject
         TaskDone++;
         ChangeMood(Trait.OnFinishedTaskReaction);
         OnPaid?.Invoke(this, earn);
-        _maxProgress = _defaultProgress;
+        MaxProgress = _defaultProgress;
     }
 
     public void SetComputer(Computer computer) => _computer = computer;

@@ -12,6 +12,9 @@ public class EmployeeUI: MonoBehaviour
     [SerializeField] private Button _giveMoney;
     [SerializeField] private Button _cheer;
     
+    [SerializeField] private Image _progressImage;
+    [SerializeField] private Image _moodImage;
+    
     [SerializeField] private Employee _employee;
 
     private void Awake()
@@ -24,6 +27,8 @@ public class EmployeeUI: MonoBehaviour
     private void Update()
     {
         SetInfo(_employee.ShownForm);
+        _progressImage.fillAmount = _employee.CurrentProgress / _employee.MaxProgress;
+        _moodImage.fillAmount = (float)_employee.MoodCoefficient / _employee.MaxMood;
     }
 
     private void Fire() => _employee.Fire();
