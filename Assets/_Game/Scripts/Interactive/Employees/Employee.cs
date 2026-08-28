@@ -73,7 +73,11 @@ public class Employee: InteractiveObject
         Advantage = _traitsDatabase.Advantages[Random.Range(0, _traitsDatabase.Advantages.Length)];
     }
     
-    private bool IsLying() => Random.Range(0, 11) > _honestCoefficient;
+    private bool IsLying()
+    {
+        if (Random.Range(0, 11) > _honestCoefficient) return true;
+        return Random.Range(0, 11) > _moodCoefficient;
+    }
 
     public void Fire() => Leave();
     public void Kill() => Leave();
