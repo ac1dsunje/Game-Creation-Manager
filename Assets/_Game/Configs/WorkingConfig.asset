@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b738205a0a047ba9943ef873c1acd38, type: 3}
   m_Name: WorkingConfig
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Interactive.Employees.WorkingConfig
-  <_defaultProgress>k__BackingField: 15
-  <MaxMood>k__BackingField: 10
+  <DefaultProgress>k__BackingField: 15
+  <MaxMood>k__BackingField: 100
+  <TraitEventMood>k__BackingField: 20
+  <DisadvantageEventMood>k__BackingField: 50
+  <AdvantageEventMood>k__BackingField: 80

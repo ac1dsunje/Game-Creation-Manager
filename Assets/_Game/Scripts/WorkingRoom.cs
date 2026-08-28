@@ -59,10 +59,6 @@ public class WorkingRoom: MonoBehaviour
                 {
                     worker.SetMaxProgressScale(eventConfig.ProgressScale);
                     worker.SetEventIcon(eventConfig.Sprite);
-                    if (eventConfig.Leave)
-                    {
-                        worker.Fire();
-                    }
                     continue;
                 }
 
@@ -75,6 +71,11 @@ public class WorkingRoom: MonoBehaviour
             }
 
             break;
+        }
+
+        if (config.Leave)
+        {
+            employee.Fire();
         }
     }
 

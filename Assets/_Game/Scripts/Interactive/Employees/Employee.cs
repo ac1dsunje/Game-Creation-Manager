@@ -68,11 +68,7 @@ public class Employee: InteractiveObject
                 );
     }
     
-    private bool IsLying()
-    {
-        if (Random.Range(0, 11) > _honestCoefficient) return true;
-        return Random.Range(0, 12) > MoodCoefficient;
-    }
+    private bool IsLying() => Random.Range(0, 11) > _honestCoefficient || Random.Range(0, 12) > MoodCoefficient;
 
     public void Fire() => Leave();
     public void Kill() => Leave();
@@ -114,19 +110,12 @@ public class Employee: InteractiveObject
         if (Random.Range(0, 10) < 7) return;
         
         var value = Random.Range(0, MoodCoefficient + 1);
-        
-        switch (value)
-        {
-            case <= 2:
-                StartTraitEvent();
-                break;
-            case <= 5:
-                StartDisadvantageEvent();
-                break;
-            case >= 8 and <= 10:
-                StartAdvantageEvent();
-                break;
-        }
+
+        if (value <= _config.TraitEventMood)
+            StartTraitEvent();
+        else if (value <= _config.DisadvantageEventMood)
+            StartDisadvantageEvent();
+        else if (value >= _config.AdvantageEventMood) StartAdvantageEvent();
     }
 
     private void StartTraitEvent()
