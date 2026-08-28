@@ -8,6 +8,7 @@ public class Computer: InteractiveObject
     [SerializeField] private GameObject _on;
     [SerializeField] private GameObject _off;
     [SerializeField] private Image _icon;
+    [SerializeField] private Sprite _transparent;
 
     public bool IsOn { get; private set; }
     public bool IsBusy { get; private set; }
@@ -20,6 +21,10 @@ public class Computer: InteractiveObject
 
     public void SetIcon(Sprite sprite)
     {
+        if (sprite == null)
+        {
+            sprite = _transparent;
+        }
         _icon.sprite = sprite;
     }
 

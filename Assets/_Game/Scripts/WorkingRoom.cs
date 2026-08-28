@@ -69,8 +69,7 @@ public class WorkingRoom: MonoBehaviour
                 foreach (var reaction in eventConfig.Reactions.Where(reaction => reaction.Trait == worker.Trait))
                 {
                     worker.AddMood(reaction.MoodChange);
-                    if (reaction.Sprite != null)
-                        worker.SetEventIcon(reaction.Sprite);
+                    worker.SetEventIcon(reaction.Sprite);
                     break;
                 }
             }

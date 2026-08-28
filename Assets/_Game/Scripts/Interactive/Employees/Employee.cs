@@ -80,8 +80,11 @@ public class Employee: InteractiveObject
 
     public void Fire() => Leave();
     public void Kill() => Leave();
-    public void SetEventIcon(Sprite sprite) => _computer.SetIcon(sprite);
-    
+    public void SetEventIcon(Sprite sprite)
+    {
+        _computer.SetIcon(sprite);
+    }
+
     public void GiveMoney()
     {
         AddMood(Trait.OnMoneyReaction);
