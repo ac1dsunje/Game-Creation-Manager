@@ -7,6 +7,8 @@ namespace _Game.Scripts.Interactive.Analytics
 public class EmployeeAnalyticSlotUI: MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _name;
+    [SerializeField] private TextMeshProUGUI _tasksDone;
+    [SerializeField] private TextMeshProUGUI _moneyEarned;
     
     private Employee _employee;
     
@@ -14,8 +16,8 @@ public class EmployeeAnalyticSlotUI: MonoBehaviour
     {
         _employee = employee;
         _name.text = _employee.ShownForm.Name;
+        _tasksDone.text = $"Tasks: {employee.TaskDone}";
+        _moneyEarned.text = $"{employee.MoneyEarned}$";
     }
-    
-    
 }
 }

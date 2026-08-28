@@ -33,6 +33,8 @@ public class Employee: InteractiveObject
     private float _maxProgress;
 
     public bool IsHired => _computer != null;
+    public int TaskDone { get; private set; }
+    public int MoneyEarned { get; private set; }
     
     private Computer _computer;
     public event Action<Employee> OnLeave;
@@ -165,7 +167,10 @@ public class Employee: InteractiveObject
 
     private void FinishTask()
     {
-        OnPaid?.Invoke(this, IsLying() ? 0 : 100);
+        var earn = IsLying() ? 0 : 100;
+        MoneyEarned += earn;
+        TaskDone++;
+        OnPaid?.Invoke(this, earn);
         OnFinishedTask?.Invoke(this);
         _maxProgress = 30;
     }
