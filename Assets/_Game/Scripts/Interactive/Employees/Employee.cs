@@ -84,11 +84,7 @@ public class Employee: InteractiveObject
 
     public void Cheer() => ChangeMood(Trait.OnCheerReaction);
 
-    public void ChangeMood(int value)
-    {
-        MoodCoefficient += value;
-        MoodCoefficient = Mathf.Clamp(MoodCoefficient, 0, MaxMood);
-    }
+    public void ChangeMood(int value) => MoodCoefficient = Mathf.Clamp(MoodCoefficient + value, 0, MaxMood);
 
     private void Update()
     {
