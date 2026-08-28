@@ -6,17 +6,17 @@ public abstract class InteractiveObject: MonoBehaviour
 {
     [SerializeField] private GameObject _visual;
     
-    protected bool _isActive;
+    protected bool IsActive;
 
     protected virtual void Awake()
     {
-        _visual.SetActive(_isActive);
+        _visual.SetActive(IsActive);
     }
 
     public virtual void Interact()
     {
-        _isActive = !_isActive;
-        _visual.gameObject.SetActive(_isActive);
+        IsActive = !IsActive;
+        _visual.gameObject.SetActive(IsActive);
     }
 }
 }

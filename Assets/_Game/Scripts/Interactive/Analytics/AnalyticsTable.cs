@@ -18,7 +18,7 @@ public class AnalyticsTable: InteractiveObject
 
     private void Update()
     {
-        if (!_isActive) return;
+        if (!IsActive) return;
         _balance.text = $"Balance: {_boss.Money}";
 
         foreach (var slot in _slots)
