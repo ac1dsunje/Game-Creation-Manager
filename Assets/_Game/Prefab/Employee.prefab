@@ -363,12 +363,15 @@ MonoBehaviour:
   <ShownForm>k__BackingField:
     <Name>k__BackingField: 
     <Age>k__BackingField: 0
+    <Trait>k__BackingField: {fileID: 0}
+    <Disadvantage>k__BackingField: {fileID: 0}
+    <Advantage>k__BackingField: {fileID: 0}
   <RealForm>k__BackingField:
     <Name>k__BackingField: 
     <Age>k__BackingField: 0
-  <Trait>k__BackingField: {fileID: 0}
-  <Disadvantage>k__BackingField: {fileID: 0}
-  <Advantage>k__BackingField: {fileID: 0}
+    <Trait>k__BackingField: {fileID: 0}
+    <Disadvantage>k__BackingField: {fileID: 0}
+    <Advantage>k__BackingField: {fileID: 0}
 --- !u!70 &5649015756037999042
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2297,6 +2300,18 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: ab40a4d9654cc144abc311f0d2a5ea8f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: ab40a4d9654cc144abc311f0d2a5ea8f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: ab40a4d9654cc144abc311f0d2a5ea8f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: ab40a4d9654cc144abc311f0d2a5ea8f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2335,6 +2350,10 @@ PrefabInstance:
     - target: {fileID: 7878350319992209165, guid: ab40a4d9654cc144abc311f0d2a5ea8f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: ab40a4d9654cc144abc311f0d2a5ea8f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -115,7 +115,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Boss
   _renderer: {fileID: 670290725315754728}
   _movement: {fileID: 4088947910961534505}
-  <Money>k__BackingField: 100000
 --- !u!114 &4088947910961534505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +157,18 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: f29067ab00e0f1a46a7f906fdd972585, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: f29067ab00e0f1a46a7f906fdd972585, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: f29067ab00e0f1a46a7f906fdd972585, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: f29067ab00e0f1a46a7f906fdd972585, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -196,6 +207,10 @@ PrefabInstance:
     - target: {fileID: 7878350319992209165, guid: f29067ab00e0f1a46a7f906fdd972585, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: f29067ab00e0f1a46a7f906fdd972585, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
