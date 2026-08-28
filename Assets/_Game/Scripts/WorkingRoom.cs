@@ -48,8 +48,6 @@ public class WorkingRoom: MonoBehaviour
     private void OnEventStarted(Employee employee, EventConfig config)
     {
         if (!CanStart(config.ColleaguesAmount)) return;
-        
-        Debug.Log($"{config} started by {employee.ShownForm.Name}");
 
         foreach (var eventConfig in _eventsDatabase.Events.Where(eventConfig => eventConfig == config))
         {
