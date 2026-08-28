@@ -1,7 +1,6 @@
 ﻿using _Game.Scripts.Boss;
 using _Game.Scripts.Interactive.Analytics;
 using _Game.Scripts.Interactive.Employees;
-using _Game.Scripts.Interactive.Employees.Forms;
 using _Game.Scripts.Interactive.Employees.Traits;
 using _Game.Scripts.Interactive.Tables;
 using UnityEngine;

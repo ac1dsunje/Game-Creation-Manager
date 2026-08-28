@@ -78,15 +78,9 @@ public class WorkingRoom: MonoBehaviour
         }
     }
 
-    private void OnEmployeeLeave(Employee employee)
-    {
-        DeleteEmployee(employee);
-    }
+    private void OnEmployeeLeave(Employee employee) => DeleteEmployee(employee);
 
-    private void OnEmployeePaid(Employee employee, int value)
-    {
-        _boss.AddMoney(value);
-    }
+    private void OnEmployeePaid(Employee employee, int value) => _boss.AddMoney(value);
 
     private void DeleteEmployee(Employee employee)
     {
@@ -94,10 +88,7 @@ public class WorkingRoom: MonoBehaviour
         Unsubscribe(employee);
     }
 
-    private void OnMoneyGiven()
-    {
-        _boss.Pay();
-    }
+    private void OnMoneyGiven() => _boss.Pay();
 
     private void Unsubscribe(Employee employee)
     {
