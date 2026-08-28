@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b105a88b07404a5fbc4ec87a38e58836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Interactive.Table
+  _visual: {fileID: 0}
 --- !u!61 &3616869638343145899
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80,7 +81,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.19466701}
+  m_Offset: {x: 0.000000029802322, y: 0.122914836}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -90,7 +91,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.610666}
+  m_Size: {x: 0.80130166, y: 0.46716163}
   m_EdgeRadius: 0
 --- !u!1001 &6363163037648903672
 PrefabInstance:

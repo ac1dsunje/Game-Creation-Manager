@@ -36,7 +36,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 32
+    spritePixelsToUnits: 64
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639232723904102985
+  platformSettingsDirtyTick: 639235145296292903
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -129,7 +129,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Table
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5192308, y: 0.3846154}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 32
-      height: 32
-    spriteID: e43b895214d0d7d41b489b5d9c73e677
+      width: 52
+      height: 39
+    spriteID: 55c28a6d3ba32334bacd738495d1796b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -167,11 +167,11 @@ ScriptedImporter:
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      spriteId: e43b895214d0d7d41b489b5d9c73e677
+        x: 5
+        y: 17
+        width: 52
+        height: 39
+      spriteId: 55c28a6d3ba32334bacd738495d1796b
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -217,5 +217,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 32}
+  canvasSize: {x: 64, y: 64}
   previousTextureSize: {x: 64, y: 64}
