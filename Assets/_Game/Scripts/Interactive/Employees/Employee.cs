@@ -4,13 +4,14 @@ using _Game.Scripts.Interactive.Employees.Events;
 using _Game.Scripts.Interactive.Employees.Forms;
 using _Game.Scripts.Interactive.Employees.Traits;
 using UnityEngine;
+using VContainer;
 using Random = UnityEngine.Random;
 
 namespace _Game.Scripts.Interactive.Employees
 {
 public class Employee: InteractiveObject
 {
-    [SerializeField] private TraitsDatabase _traitsDatabase;
+    [Inject] private TraitsDatabase _traitsDatabase;
     
     // Form
     [field: SerializeField] public Form ShownForm { get; private set; }

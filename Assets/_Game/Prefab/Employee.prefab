@@ -300,6 +300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2356663687836186750}
+  - component: {fileID: 2835224558686549999}
   - component: {fileID: -124767027300631002}
   - component: {fileID: 5649015756037999042}
   m_Layer: 0
@@ -326,6 +327,22 @@ Transform:
   - {fileID: 1838948008292285845}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2835224558686549999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1895079927785923212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d54959692b1743e68d4c89c89aa253a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Interactive.Employees.EmployeeScope
+  parentReference:
+    TypeName: _Game.Scripts.GamePlayScope
+  autoRun: 1
+  autoInjectGameObjects: []
 --- !u!114 &-124767027300631002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,7 +356,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Employee
   _visual: {fileID: 1462072345045801671}
-  _traitsDatabase: {fileID: 11400000, guid: ee7a48de240edc849988c3a83c212fe0, type: 2}
   <ShownForm>k__BackingField:
     <Name>k__BackingField: 
     <Age>k__BackingField: 0
@@ -984,7 +1000,6 @@ MonoBehaviour:
   _cheer: {fileID: 3091922176531076823}
   _progressImage: {fileID: 5140360016028370668}
   _moodImage: {fileID: 8682576698806349712}
-  _employee: {fileID: -124767027300631002}
 --- !u!1 &5501792848027979122
 GameObject:
   m_ObjectHideFlags: 0

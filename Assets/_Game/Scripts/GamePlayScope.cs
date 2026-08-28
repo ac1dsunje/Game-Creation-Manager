@@ -2,7 +2,9 @@
 using _Game.Scripts.Interactive.Analytics;
 using _Game.Scripts.Interactive.Employees;
 using _Game.Scripts.Interactive.Employees.Forms;
+using _Game.Scripts.Interactive.Employees.Traits;
 using _Game.Scripts.Interactive.Tables;
+using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
@@ -10,8 +12,11 @@ namespace _Game.Scripts
 {
 public class GamePlayScope: LifetimeScope
 {
+    [SerializeField] private TraitsDatabase _traitsDatabase;
     protected override void Configure(IContainerBuilder builder)
     {
+        builder.RegisterInstance(_traitsDatabase);
+        
         builder.RegisterComponentInHierarchy<EmployeeSpawner>();
         builder.RegisterComponentInHierarchy<FormsUI>();
         builder.RegisterComponentInHierarchy<WorkingRoom>();

@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using VContainer;
 
 namespace _Game.Scripts.Interactive.Employees
 {
@@ -15,7 +16,7 @@ public class EmployeeUI: MonoBehaviour
     [SerializeField] private Image _progressImage;
     [SerializeField] private Image _moodImage;
     
-    [SerializeField] private Employee _employee;
+    [Inject] private Employee _employee;
 
     private void Awake()
     {
@@ -32,7 +33,6 @@ public class EmployeeUI: MonoBehaviour
     }
 
     private void Fire() => _employee.Fire();
-
     private void GiveMoney() => _employee.GiveMoney();
     private void Cheer() => _employee.Cheer();
 
