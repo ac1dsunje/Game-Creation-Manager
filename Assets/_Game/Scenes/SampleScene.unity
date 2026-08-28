@@ -4260,6 +4260,9 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   _traitsDatabase: {fileID: 11400000, guid: ee7a48de240edc849988c3a83c212fe0, type: 2}
+  _gamePlayConfig:
+    <StartMoney>k__BackingField: 1000
+    <MaxTime>k__BackingField: 300
 --- !u!1 &1693365479
 GameObject:
   m_ObjectHideFlags: 0

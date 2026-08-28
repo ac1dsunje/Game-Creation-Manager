@@ -12,9 +12,12 @@ namespace _Game.Scripts
 public class GamePlayScope: LifetimeScope
 {
     [SerializeField] private TraitsDatabase _traitsDatabase;
+    [SerializeField] private GamePlayConfig _gamePlayConfig;
+    
     protected override void Configure(IContainerBuilder builder)
     {
         builder.RegisterInstance(_traitsDatabase);
+        builder.RegisterInstance(_gamePlayConfig);
         
         builder.RegisterComponentInHierarchy<EmployeeSpawner>();
         builder.RegisterComponentInHierarchy<FormsUI>();

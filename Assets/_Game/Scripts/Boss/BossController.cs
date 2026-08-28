@@ -1,5 +1,6 @@
 ﻿using _Game.Scripts.Interactive;
 using UnityEngine;
+using VContainer;
 
 namespace _Game.Scripts.Boss
 {
@@ -7,7 +8,8 @@ public class BossController : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private MovementController _movement;
-    public int Money { get; private set; } = 1000;
+    
+    public int Money { get; private set; }
 
     private PlayerInput _playerInput;
 
@@ -16,7 +18,13 @@ public class BossController : MonoBehaviour
 
     private void Awake()
     {
-        _playerInput = GetComponent<PlayerInput>();    
+        _playerInput = GetComponent<PlayerInput>();
+    }
+
+    [Inject]
+    private void Construct(GamePlayConfig gamePlayConfig)
+    {
+        Money = gamePlayConfig.StartMoney;
     }
 
     public void AddMoney(int value) => Money += value;
