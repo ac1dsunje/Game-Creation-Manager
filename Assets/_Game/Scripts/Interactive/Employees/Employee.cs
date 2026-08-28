@@ -66,9 +66,9 @@ public class Employee: InteractiveObject
             RealForm : 
             new Form(Random.Range(RealForm.Age, 100));
 
-        Trait = _traitsDatabase.Personalities[Random.Range(0, _traitsDatabase.Personalities.Length) + 1];
-        Disadvantage = _traitsDatabase.Disadvantages[Random.Range(0, _traitsDatabase.Disadvantages.Length) + 1];
-        Advantage = _traitsDatabase.Advantages[Random.Range(0, _traitsDatabase.Advantages.Length) + 1];
+        Trait = _traitsDatabase.Personalities[Random.Range(0, _traitsDatabase.Personalities.Length)];
+        Disadvantage = _traitsDatabase.Disadvantages[Random.Range(0, _traitsDatabase.Disadvantages.Length)];
+        Advantage = _traitsDatabase.Advantages[Random.Range(0, _traitsDatabase.Advantages.Length)];
     }
     
     private bool IsLying()
