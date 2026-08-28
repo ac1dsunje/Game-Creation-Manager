@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using _Game.Scripts.Boss;
+using _Game.Scripts.Interactive.Employees;
+using _Game.Scripts.Interactive.Employees.Forms;
 using UnityEngine;
-using UnityEngine.UI;
 using VContainer;
 
-namespace _Game.Scripts.Interactive.Employees.Forms
+namespace _Game.Scripts.Interactive.Tables
 {
 public class FormsUI: MonoBehaviour
 {
@@ -15,16 +15,14 @@ public class FormsUI: MonoBehaviour
     
     private EmployeeSpawner _spawner;
     private WorkingRoom _workingRoom;
-    private BossController _bossController;
 
     [Inject]
-    private void Construct(EmployeeSpawner spawner, WorkingRoom workingRoom, BossController boss)
+    private void Construct(EmployeeSpawner spawner, WorkingRoom workingRoom)
     {
         _spawner = spawner;
         _spawner.OnEmployeeSpawned += CreateFormUI;
         
         _workingRoom = workingRoom;
-        _bossController = boss;
     }
 
     private void CreateFormUI(Employee employee)
