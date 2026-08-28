@@ -12,12 +12,12 @@ namespace _Game.Scripts
 public class WorkingRoom: MonoBehaviour
 {
     [SerializeField] private List<Computer> _computers;
-    [SerializeField] private EventsDatabase _eventsDatabase;
     private readonly List<Employee> _employees = new();
 
     public List<Employee> GetHiredEmployees() => _employees.Where(employee => employee.IsHired).ToList();
 
     [Inject] private BossController _boss;
+    [Inject] private EventsDatabase _eventsDatabase;
 
     public void AddEmployee(Employee employee)
     {
