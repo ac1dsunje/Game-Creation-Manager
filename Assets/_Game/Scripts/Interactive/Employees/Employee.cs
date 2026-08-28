@@ -81,9 +81,13 @@ public class Employee: InteractiveObject
 
     public void GiveSalary(int value)
     {
-        if (DidntGetPaid(value))
+        if (GotSalary(value))
         {
             AddMood(Trait.OnSalaryReaction);
+        }
+        else
+        {
+            AddMood(Trait.OnLostSalaryReaction);
         }
     }
     
@@ -95,7 +99,7 @@ public class Employee: InteractiveObject
 
     public void Cheer() => AddMood(Trait.OnCheerReaction);
 
-    private bool DidntGetPaid(int value) => value == 0;
+    private bool GotSalary(int value) => value > 0;
 
     public void AddMood(int value)
     {

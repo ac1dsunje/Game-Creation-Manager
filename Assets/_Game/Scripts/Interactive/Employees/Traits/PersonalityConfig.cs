@@ -7,6 +7,7 @@ public class PersonalityConfig: TraitConfig
 {
     [field: SerializeField] public int OnMoneyReaction { get; private set; }
     [field: SerializeField] public int OnSalaryReaction { get; private set; }
+    [field: SerializeField] public int OnLostSalaryReaction { get; private set; }
     [field: SerializeField] public int OnCheerReaction { get; private set; }
 }
 }
