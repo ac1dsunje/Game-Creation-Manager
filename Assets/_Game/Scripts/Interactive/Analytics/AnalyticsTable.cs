@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using _Game.Scripts.Boss;
+using TMPro;
 using UnityEngine;
 using VContainer;
 
@@ -8,13 +10,16 @@ public class AnalyticsTable: InteractiveObject
 {
     [SerializeField] private GameObject _employeeSlotUI;
     [SerializeField] private Transform _slotsContainer;
+    [SerializeField] private TextMeshProUGUI _balance;
     [Inject] private WorkingRoom _room;
+    [Inject] private BossController _boss;
 
     private readonly List<GameObject> _slots = new();
 
     private void Update()
     {
         if (!_isActive) return;
+        _balance.text = $"Balance: {_boss.Money}";
 
         foreach (var slot in _slots)
         {

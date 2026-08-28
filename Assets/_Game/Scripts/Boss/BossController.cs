@@ -7,7 +7,7 @@ public class BossController : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private MovementController _movement;
-    [field: SerializeField] public int Money { get; private set; } = 100000;
+    public int Money { get; private set; } = 1000;
     private bool _isPaying = true;
 
     private PlayerInput _playerInput;
