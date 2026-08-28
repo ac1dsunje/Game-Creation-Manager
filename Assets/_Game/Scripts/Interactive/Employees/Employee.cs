@@ -26,10 +26,11 @@ public class Employee: InteractiveObject
     [field: SerializeField] public TraitConfig Advantage { get; private set; }
     
     // Working
-    [SerializeField] private bool _liedAboutForm;
     [SerializeField] private int _honestCoefficient;
-    [SerializeField] private int _moodCoefficient;
-    [SerializeField] private float _defaultProgress = 15f;
+    [SerializeField] private int _defaultProgress = 15;
+    [SerializeField] private int _maxMood = 10;
+    
+    private int _moodCoefficient;
     private float _currentProgress;
     private float _maxProgress;
 
@@ -55,21 +56,19 @@ public class Employee: InteractiveObject
     private void InitializeStats()
     {
         _honestCoefficient = Random.Range(1, 10);
+        _moodCoefficient = Random.Range(5, _maxMood);
         
         _maxProgress = _defaultProgress;
-        _liedAboutForm = IsLying();
-        
-        _moodCoefficient = Random.Range(3, 8);
         
         RealForm = new Form(Random.Range(18, 100));
 
-        ShownForm = !_liedAboutForm? 
+        ShownForm = !IsLying()? 
             RealForm : 
             new Form(Random.Range(RealForm.Age, 100));
 
-        Trait = _traitsDatabase.Personalities[Random.Range(0, _traitsDatabase.Personalities.Length)];
-        Disadvantage = _traitsDatabase.Disadvantages[Random.Range(0, _traitsDatabase.Disadvantages.Length)];
-        Advantage = _traitsDatabase.Advantages[Random.Range(0, _traitsDatabase.Advantages.Length)];
+        Trait = _traitsDatabase.Personalities[Random.Range(0, _traitsDatabase.Personalities.Length) + 1];
+        Disadvantage = _traitsDatabase.Disadvantages[Random.Range(0, _traitsDatabase.Disadvantages.Length) + 1];
+        Advantage = _traitsDatabase.Advantages[Random.Range(0, _traitsDatabase.Advantages.Length) + 1];
     }
     
     private bool IsLying()
@@ -96,7 +95,7 @@ public class Employee: InteractiveObject
     public void ChangeMood(int value)
     {
         _moodCoefficient += value;
-        _moodCoefficient = Mathf.Clamp(_moodCoefficient, 0, 10);
+        _moodCoefficient = Mathf.Clamp(_moodCoefficient, 0, _maxMood);
     }
 
     private void Update()
@@ -107,7 +106,7 @@ public class Employee: InteractiveObject
             Work(Time.deltaTime);
         }
         _progressImage.fillAmount = _currentProgress / _maxProgress;
-        _moodImage.fillAmount = _moodCoefficient / 10f;
+        _moodImage.fillAmount = (float)_moodCoefficient / _maxMood;
     }
 
     private void Work(float timeDelta)
