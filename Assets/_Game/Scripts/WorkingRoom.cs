@@ -15,6 +15,8 @@ public class WorkingRoom: MonoBehaviour
     [SerializeField] private EventsDatabase _eventsDatabase;
     private readonly List<Employee> _employees = new();
 
+    public List<Employee> GetHiredEmployees() => _employees.Where(employee => employee.IsHired).ToList();
+
     [Inject] private BossController _boss;
 
     public void AddEmployee(Employee employee)
