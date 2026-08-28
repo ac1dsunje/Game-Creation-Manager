@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 748cca3eaaeb3a6428aae176bbfcfd0e
+guid: 2bb5a68c9e8f71f4b844a15cee6309ff
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -163,7 +163,7 @@ ScriptedImporter:
     layerType: 0
     blendMode: 0
     cells:
-    - name: Table
+    - name: AnalyticSprite
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:

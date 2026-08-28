@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0e9a3484933425f4abb6251609424fba
+guid: 9512b0be85224984ab31058a8ed47966
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,7 +102,7 @@ ScriptedImporter:
     generateIndividualEvents: 1
     generateSpriteAtlas: 1
   importFileNodeState: 1
-  platformSettingsDirtyTick: 639232531322677273
+  platformSettingsDirtyTick: 639235150146766100
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Computer
+  - name: computer_off
     originalName: 
-    pivot: {x: 0.5, y: 0.48387095}
+    pivot: {x: 0.53846157, y: 0.64}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 32
-      height: 31
-    spriteID: 752e4d7b5a742814ab0abf5735c61c0e
+      width: 52
+      height: 50
+    spriteID: 085694704a728a34d97d9340e435abc2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 1216849895
+      value0: 2295467147
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: Computer
+    name: computer_off
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: ComputerOn
+    - name: computer_off
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
-        y: 1
-        width: 32
-        height: 31
-      spriteId: 752e4d7b5a742814ab0abf5735c61c0e
+        x: 4
+        y: 0
+        width: 52
+        height: 50
+      spriteId: 085694704a728a34d97d9340e435abc2
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -217,5 +217,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 32}
+  canvasSize: {x: 64, y: 64}
   previousTextureSize: {x: 64, y: 64}

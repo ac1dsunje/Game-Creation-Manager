@@ -31,6 +31,8 @@ public class Employee: InteractiveObject
     [SerializeField] private int _moodCoefficient;
     private float _currentProgress;
     private float _maxProgress;
+
+    public bool IsHired => _computer != null;
     
     private Computer _computer;
     public event Action<Employee> OnLeave;
