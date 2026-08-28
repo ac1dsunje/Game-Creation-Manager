@@ -49,6 +49,8 @@ public class WorkingRoom: MonoBehaviour
     {
         if (!CanStart(config.ColleaguesAmount)) return;
 
+        var colleagues = new List<Employee>();
+
         foreach (var eventConfig in _eventsDatabase.Events.Where(eventConfig => eventConfig == config))
         {
             foreach (var worker in _employees)
@@ -59,6 +61,8 @@ public class WorkingRoom: MonoBehaviour
                     worker.SetEventIcon(eventConfig.Sprite);
                     continue;
                 }
+                
+                colleagues.Add(worker);
 
                 foreach (var reaction in eventConfig.Reactions.Where(reaction => reaction.Trait == worker.RealForm.Trait))
                 {
@@ -71,10 +75,9 @@ public class WorkingRoom: MonoBehaviour
             break;
         }
 
-        if (config.Leave)
-        {
-            employee.Fire();
-        }
+        if (config.Leave) employee.Fire();
+
+        if (config.Kill) colleagues[Random.Range(0, colleagues.Count)].Kill();
     }
 
     private void OnEmployeeLeave(Employee employee) => DeleteEmployee(employee);
