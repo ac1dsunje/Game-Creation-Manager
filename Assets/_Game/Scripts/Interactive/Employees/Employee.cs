@@ -121,7 +121,7 @@ public class Employee: InteractiveObject
         TryStartEvent();
     }
 
-    public void SetMaxProgressScale(float value) => _maxProgress = value * _maxProgress;
+    public void SetMaxProgressScale(float value) => _maxProgress = value * _defaultProgress;
 
     private void TryStartEvent()
     {
