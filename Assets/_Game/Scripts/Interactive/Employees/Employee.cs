@@ -17,15 +17,10 @@ public class Employee: InteractiveObject
     [field: SerializeField] public Form ShownForm { get; private set; }
     [field: SerializeField] public Form RealForm { get; private set; }
     
-    [field: SerializeField] public PersonalityConfig Trait { get; private set; }
-    [field: SerializeField] public TraitConfig Disadvantage { get; private set; }
-    [field: SerializeField] public TraitConfig Advantage { get; private set; }
-    
     // Working
-    [SerializeField] private int _honestCoefficient;
-    [SerializeField] private int _defaultProgress = 15;
-    [field: SerializeField] public int MaxMood { get; private set; } = 10;
+    [Inject] private WorkingConfig _config;
     
+    private int _honestCoefficient;
     public int MoodCoefficient { get; private set; }
     public float CurrentProgress { get; private set; }
     public float MaxProgress { get; private set; }
@@ -52,19 +47,25 @@ public class Employee: InteractiveObject
     private void InitializeStats()
     {
         _honestCoefficient = Random.Range(1, 10);
-        MoodCoefficient = Random.Range(5, MaxMood);
+        MoodCoefficient = Random.Range(5, _config.MaxMood);
         
-        MaxProgress = _defaultProgress;
+        MaxProgress = _config.DefaultProgress;
         
-        RealForm = new Form(Random.Range(18, 45));
+        RealForm = new Form(
+            Random.Range(18, 45),
+            _traitsDatabase.Personalities[Random.Range(0, _traitsDatabase.Personalities.Length)],
+            _traitsDatabase.Disadvantages[Random.Range(0, _traitsDatabase.Disadvantages.Length)],
+            _traitsDatabase.Advantages[Random.Range(0, _traitsDatabase.Advantages.Length)]
+            );
 
         ShownForm = !IsLying()? 
             RealForm : 
-            new Form(Random.Range(RealForm.Age, 45));
-
-        Trait = _traitsDatabase.Personalities[Random.Range(0, _traitsDatabase.Personalities.Length)];
-        Disadvantage = _traitsDatabase.Disadvantages[Random.Range(0, _traitsDatabase.Disadvantages.Length)];
-        Advantage = _traitsDatabase.Advantages[Random.Range(0, _traitsDatabase.Advantages.Length)];
+            new Form(
+                Random.Range(RealForm.Age, 45),
+                _traitsDatabase.Personalities[Random.Range(0, _traitsDatabase.Personalities.Length)],
+                _traitsDatabase.Disadvantages[Random.Range(0, _traitsDatabase.Disadvantages.Length)],
+                _traitsDatabase.Advantages[Random.Range(0, _traitsDatabase.Advantages.Length)]
+                );
     }
     
     private bool IsLying()
@@ -79,13 +80,13 @@ public class Employee: InteractiveObject
 
     public void GiveMoney()
     {
-        ChangeMood(Trait.OnMoneyReaction);
+        ChangeMood(RealForm.Trait.OnMoneyReaction);
         OnMoneyGiven?.Invoke();
     }
 
-    public void Cheer() => ChangeMood(Trait.OnCheerReaction);
+    public void Cheer() => ChangeMood(RealForm.Trait.OnCheerReaction);
 
-    public void ChangeMood(int value) => MoodCoefficient = Mathf.Clamp(MoodCoefficient + value, 0, MaxMood);
+    public void ChangeMood(int value) => MoodCoefficient = Mathf.Clamp(MoodCoefficient + value, 0, _config.MaxMood);
 
     private void Update()
     {
@@ -106,7 +107,7 @@ public class Employee: InteractiveObject
         TryStartEvent();
     }
 
-    public void SetMaxProgressScale(float value) => MaxProgress = _defaultProgress / value;
+    public void SetMaxProgressScale(float value) => MaxProgress = _config.DefaultProgress / value;
 
     private void TryStartEvent()
     {
@@ -130,20 +131,23 @@ public class Employee: InteractiveObject
 
     private void StartTraitEvent()
     {
-        if (Trait.EventConfig == null) return;
-        OnEventStarted?.Invoke(this, Trait.EventConfig);
+        if (RealForm.Trait.EventConfig == null) return;
+        ShownForm.UpdateTrait(RealForm.Trait);
+        OnEventStarted?.Invoke(this, RealForm.Trait.EventConfig);
     }
 
     private void StartDisadvantageEvent()
     {
-        if (Disadvantage.EventConfig == null) return;
-        OnEventStarted?.Invoke(this, Disadvantage.EventConfig);
+        if (RealForm.Disadvantage.EventConfig == null) return;
+        ShownForm.UpdateDisadvantage(RealForm.Disadvantage);
+        OnEventStarted?.Invoke(this, RealForm.Disadvantage.EventConfig);
     }
 
     private void StartAdvantageEvent()
     {
-        if (Advantage.EventConfig == null) return;
-        OnEventStarted?.Invoke(this, Advantage.EventConfig);
+        if (RealForm.Advantage.EventConfig == null) return;
+        ShownForm.UpdateAdvantage(RealForm.Advantage);
+        OnEventStarted?.Invoke(this, RealForm.Advantage.EventConfig);
     }
 
     private void FinishTask()
@@ -151,9 +155,9 @@ public class Employee: InteractiveObject
         var earn = IsLying() ? 0 : 100;
         MoneyEarned += earn;
         TaskDone++;
-        ChangeMood(Trait.OnFinishedTaskReaction);
+        ChangeMood(RealForm.Trait.OnFinishedTaskReaction);
         OnPaid?.Invoke(this, earn);
-        MaxProgress = _defaultProgress;
+        MaxProgress = _config.DefaultProgress;
     }
 
     public void SetComputer(Computer computer) => _computer = computer;

@@ -9,6 +9,11 @@ namespace _Game.Scripts.Interactive.Employees
 public class EmployeeUI: MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _name;
+    [SerializeField] private TextMeshProUGUI _trait;
+    [SerializeField] private TextMeshProUGUI _disadvantage;
+    [SerializeField] private TextMeshProUGUI _advantage;
+    
+    
     [SerializeField] private Button _hire;
     [SerializeField] private Button _giveMoney;
     [SerializeField] private Button _cheer;
@@ -17,6 +22,7 @@ public class EmployeeUI: MonoBehaviour
     [SerializeField] private Image _moodImage;
     
     [Inject] private Employee _employee;
+    [Inject] private WorkingConfig _config;
 
     private void Awake()
     {
@@ -29,7 +35,7 @@ public class EmployeeUI: MonoBehaviour
     {
         SetInfo(_employee.ShownForm);
         _progressImage.fillAmount = _employee.CurrentProgress / _employee.MaxProgress;
-        _moodImage.fillAmount = (float)_employee.MoodCoefficient / _employee.MaxMood;
+        _moodImage.fillAmount = (float)_employee.MoodCoefficient / _config.MaxMood;
     }
 
     private void Fire() => _employee.Fire();
@@ -39,6 +45,9 @@ public class EmployeeUI: MonoBehaviour
     private void SetInfo(Form form)
     {
         _name.text = form.Name;
+        _trait.text =$"{form.Trait.name}";
+        _disadvantage.text =$"{form.Disadvantage.name}";
+        _advantage.text =$"{form.Advantage.name}";
     }
 
     private void OnDestroy()

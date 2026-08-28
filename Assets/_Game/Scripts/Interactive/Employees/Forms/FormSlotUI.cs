@@ -9,6 +9,9 @@ public class FormSlotUI: MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _name;
     [SerializeField] private TextMeshProUGUI _age;
+    [SerializeField] private TextMeshProUGUI _trait;
+    [SerializeField] private TextMeshProUGUI _disadvantage;
+    [SerializeField] private TextMeshProUGUI _advantage;
     [SerializeField] private Button _accept;
     [SerializeField] private Button _cancel;
 
@@ -27,6 +30,9 @@ public class FormSlotUI: MonoBehaviour
         _employee = employee;
         _name.text = _employee.ShownForm.Name;
         _age.text = $"{_employee.ShownForm.Age}";
+        _trait.text =$"{_employee.ShownForm.Trait.name}";
+        _disadvantage.text =$"{_employee.ShownForm.Disadvantage.name}";
+        _advantage.text =$"{_employee.ShownForm.Advantage.name}";
     }
 
     private void Accept()

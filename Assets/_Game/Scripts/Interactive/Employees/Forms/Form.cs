@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using _Game.Scripts.Interactive.Employees.Traits;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,12 +11,24 @@ public class Form
 {
     [field: SerializeField] public string Name { get; private set; }
     [field: SerializeField] public int Age { get; private set; }
-    
-    public Form(int age)
+    [field: SerializeField] public PersonalityConfig Trait { get; private set; }
+    [field: SerializeField] public TraitConfig Disadvantage { get; private set; }
+    [field: SerializeField] public TraitConfig Advantage { get; private set; }
+
+    public Form(int age, PersonalityConfig trait, TraitConfig disadvantage, TraitConfig advantage)
     {
         Name = _names[Random.Range(0, _names.Count)];
         Age = age;
+        Trait = trait;
+        Disadvantage = disadvantage;
+        Advantage = advantage;
     }
+
+    public void UpdateTrait(PersonalityConfig trait) => Trait = trait;
+
+    public void UpdateDisadvantage(TraitConfig disadvantage) => Disadvantage = disadvantage;
+
+    public void UpdateAdvantage(TraitConfig advantage) => Advantage = advantage;
 
     private List<string> _names = new() 
     {

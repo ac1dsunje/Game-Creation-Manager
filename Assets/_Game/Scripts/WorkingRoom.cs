@@ -66,7 +66,7 @@ public class WorkingRoom: MonoBehaviour
                     continue;
                 }
 
-                foreach (var reaction in eventConfig.Reactions.Where(reaction => reaction.Trait == worker.Trait))
+                foreach (var reaction in eventConfig.Reactions.Where(reaction => reaction.Trait == worker.RealForm.Trait))
                 {
                     worker.ChangeMood(reaction.MoodChange);
                     worker.SetEventIcon(reaction.Sprite);
