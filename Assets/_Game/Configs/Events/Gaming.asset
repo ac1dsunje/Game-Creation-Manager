@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6984185515b4d97846aa21a11146664, type: 3}
   m_Name: Gaming
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Interactive.Employees.Events.EventConfig
+  <Name>k__BackingField: Gaming
   <Reactions>k__BackingField:
   - <Trait>k__BackingField: {fileID: 11400000, guid: e25328ddeb9e6a54cac161177ac2a856, type: 2}
     <MoodChange>k__BackingField: -1
@@ -24,6 +25,6 @@ MonoBehaviour:
     <Sprite>k__BackingField: {fileID: 0}
   <ProgressScale>k__BackingField: 0.5
   <ColleaguesAmount>k__BackingField: 0
-  <KillAmount>k__BackingField: 0
+  <Kill>k__BackingField: 0
   <Leave>k__BackingField: 0
   <Sprite>k__BackingField: {fileID: -3611798720793847737, guid: 8be32d822044eef48a05cdf3ae19a1cc, type: 3}

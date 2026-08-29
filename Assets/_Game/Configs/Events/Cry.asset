@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6984185515b4d97846aa21a11146664, type: 3}
   m_Name: Cry
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Interactive.Employees.Events.EventConfig
+  <Name>k__BackingField: Cry
   <Reactions>k__BackingField:
   - <Trait>k__BackingField: {fileID: 11400000, guid: e25328ddeb9e6a54cac161177ac2a856, type: 2}
     <MoodChange>k__BackingField: 2

@@ -11,6 +11,7 @@ namespace _Game.Scripts.Interactive.Employees.Events
 )]
 public class EventConfig : ScriptableObject
 {
+    [field: SerializeField] public String Name { get; private set; }
     [field: SerializeField] public List<TraitReaction> Reactions { get; private set; } = new();
 
     [field: SerializeField, Range(0.1f, 3f)] public float ProgressScale { get; private set; } = 1f;

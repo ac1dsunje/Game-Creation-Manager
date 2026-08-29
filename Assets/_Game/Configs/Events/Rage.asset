@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6984185515b4d97846aa21a11146664, type: 3}
   m_Name: Rage
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Interactive.Employees.Events.EventConfig
+  <Name>k__BackingField: Rage
   <Reactions>k__BackingField:
   - <Trait>k__BackingField: {fileID: 11400000, guid: 7ff1ab90aa8712340a6d8037edc9cac6, type: 2}
     <MoodChange>k__BackingField: 1

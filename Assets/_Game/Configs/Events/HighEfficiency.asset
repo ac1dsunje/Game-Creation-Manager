@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6984185515b4d97846aa21a11146664, type: 3}
   m_Name: HighEfficiency
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Interactive.Employees.Events.EventConfig
+  <Name>k__BackingField: HighEfficiency
   <Reactions>k__BackingField:
   - <Trait>k__BackingField: {fileID: 11400000, guid: 78136536c1f98de4a88bf82f944acf30, type: 2}
     <MoodChange>k__BackingField: -1
     <Sprite>k__BackingField: {fileID: 0}
   <ProgressScale>k__BackingField: 2
   <ColleaguesAmount>k__BackingField: 0
-  <KillAmount>k__BackingField: 0
+  <Kill>k__BackingField: 0
   <Leave>k__BackingField: 0
   <Sprite>k__BackingField: {fileID: 6649332775568237839, guid: a8dd128a69ae69a41bd8e1425cf2dea6, type: 3}
