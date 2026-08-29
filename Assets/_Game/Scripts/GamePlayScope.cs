@@ -28,6 +28,7 @@ public class GamePlayScope: LifetimeScope
         builder.RegisterComponentInHierarchy<Table>();
         builder.RegisterComponentInHierarchy<AnalyticsTable>();
         builder.RegisterComponentInHierarchy<BossController>();
+        builder.RegisterComponentInHierarchy<AudioManager>();
     }
 }
 }

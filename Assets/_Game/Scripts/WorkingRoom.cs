@@ -20,6 +20,7 @@ public class WorkingRoom: MonoBehaviour
     [Inject] private BossController _boss;
     [Inject] private EventsDatabase _eventsDatabase;
     [Inject] private GamePlayConfig _config;
+    [Inject] private AudioManager _audioManager;
     
     private float _timer;
 
@@ -35,7 +36,7 @@ public class WorkingRoom: MonoBehaviour
     {
         if (computer.IsOn)
         {
-            PlaySound(_computerOnData, computer.transform.position);
+            _audioManager.PlaySound(_computerOnData, computer.transform.position);
         }
     }
 
@@ -104,7 +105,7 @@ public class WorkingRoom: MonoBehaviour
             break;
         }
         
-        PlaySound(config.SoundData, employee.transform.position);
+        _audioManager.PlaySound(config.SoundData, employee.transform.position);
         
         if (config.Leave) employee.Fire();
 
@@ -122,14 +123,6 @@ public class WorkingRoom: MonoBehaviour
     }
 
     private void OnMoneyGiven() => _boss.Pay();
-
-    private void PlaySound(SoundData sound, Vector2 position)
-    {
-        if (sound.Audio != null)
-        {
-            AudioSource.PlayClipAtPoint(sound.Audio, position, sound.Volume);
-        }
-    }
     
     private void Unsubscribe(Employee employee)
     {

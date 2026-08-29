@@ -4222,6 +4222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1360737335}
   - component: {fileID: 1360737336}
+  - component: {fileID: 1360737337}
   m_Layer: 0
   m_Name: Scope
   m_TagString: Untagged
@@ -4269,6 +4270,18 @@ MonoBehaviour:
     - <MaxTime>k__BackingField: 300
       <MoneyGoal>k__BackingField: 3000
   _eventsDatabase: {fileID: 11400000, guid: aa575f161ecd9674c9d539ebc3148936, type: 2}
+--- !u!114 &1360737337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360737334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2475d25442164391980e28d72e355478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.AudioManager
 --- !u!1 &1693365479
 GameObject:
   m_ObjectHideFlags: 0
