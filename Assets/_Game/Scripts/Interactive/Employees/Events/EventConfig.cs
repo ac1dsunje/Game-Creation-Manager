@@ -19,6 +19,7 @@ public class EventConfig : ScriptableObject
     [field: SerializeField] public bool Kill { get; private set; }
     [field: SerializeField] public bool Leave { get; private set; }
     [field: SerializeField] public Sprite Sprite { get; private set; }
+    [field: SerializeField] public AudioClip Audio { get; private set; }
 }
 
 [Serializable]
