@@ -22,3 +22,7 @@ MonoBehaviour:
   <Kill>k__BackingField: 0
   <Leave>k__BackingField: 0
   <Sprite>k__BackingField: {fileID: 6649332775568237839, guid: a8dd128a69ae69a41bd8e1425cf2dea6, type: 3}
+  <SoundData>k__BackingField:
+    <Audio>k__BackingField: {fileID: 8300000, guid: 1d6117a44cc816844b9bf5a4d00f226a, type: 3}
+    <Volume>k__BackingField: 1
+    <Pitch>k__BackingField: 0.1

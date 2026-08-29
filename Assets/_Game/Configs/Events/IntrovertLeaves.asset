@@ -10,25 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6984185515b4d97846aa21a11146664, type: 3}
-  m_Name: Scream
+  m_Name: IntrovertLeaves
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.Interactive.Employees.Events.EventConfig
-  <Name>k__BackingField: Scream
+  <Name>k__BackingField: IntrovertLeaves
   <Reactions>k__BackingField:
-  - <Trait>k__BackingField: {fileID: 11400000, guid: e25328ddeb9e6a54cac161177ac2a856, type: 2}
+  - <Trait>k__BackingField: {fileID: 11400000, guid: 51a699e9697726747add92311b6e5aed, type: 2}
     <MoodChange>k__BackingField: -1
     <Sprite>k__BackingField: {fileID: 0}
-  - <Trait>k__BackingField: {fileID: 11400000, guid: 7ff1ab90aa8712340a6d8037edc9cac6, type: 2}
+  - <Trait>k__BackingField: {fileID: 11400000, guid: e25328ddeb9e6a54cac161177ac2a856, type: 2}
     <MoodChange>k__BackingField: 1
     <Sprite>k__BackingField: {fileID: 0}
-  - <Trait>k__BackingField: {fileID: 11400000, guid: 2146ce460abaf794e9b742d3153ad59b, type: 2}
-    <MoodChange>k__BackingField: -2
-    <Sprite>k__BackingField: {fileID: 0}
   <ProgressScale>k__BackingField: 1
-  <ColleaguesAmount>k__BackingField: 0
+  <ColleaguesAmount>k__BackingField: 5
   <Kill>k__BackingField: 0
-  <Leave>k__BackingField: 0
-  <Sprite>k__BackingField: {fileID: 5370660009832990188, guid: d64d47d939a26b34095d42aa28e4ef40, type: 3}
+  <Leave>k__BackingField: 1
+  <Sprite>k__BackingField: {fileID: 3226933723232059387, guid: 5b4ee1e520337334a834698ef93b0ddf, type: 3}
   <SoundData>k__BackingField:
-    <Audio>k__BackingField: {fileID: 8300000, guid: 9dbb52780f436754887de8b1dcb1b8d1, type: 3}
+    <Audio>k__BackingField: {fileID: 8300000, guid: 786fb6a08c9b36845956d2d25bd4749c, type: 3}
     <Volume>k__BackingField: 1
     <Pitch>k__BackingField: 0.1
