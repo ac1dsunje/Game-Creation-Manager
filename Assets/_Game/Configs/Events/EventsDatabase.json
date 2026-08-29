@@ -6,22 +6,18 @@
             "ColleaguesAmount": 0,
             "Kill": false,
             "Leave": false,
-            "SpriteName": "ScreamSource",
             "Reactions": [
                 {
                     "TraitName": "Narciss",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 },
                 {
                     "TraitName": "Psycho",
-                    "MoodChange": 1,
-                    "SpriteName": ""
+                    "MoodChange": 1
                 },
                 {
                     "TraitName": "Introvert",
-                    "MoodChange": -2,
-                    "SpriteName": ""
+                    "MoodChange": -2
                 }
             ]
         },
@@ -31,32 +27,26 @@
             "ColleaguesAmount": 0,
             "Kill": false,
             "Leave": false,
-            "SpriteName": "FartEventSource",
             "Reactions": [
                 {
                     "TraitName": "Narciss",
-                    "MoodChange": -1,
-                    "SpriteName": "FartReceiverSprite"
+                    "MoodChange": -1
                 },
                 {
                     "TraitName": "Introvert",
-                    "MoodChange": -1,
-                    "SpriteName": "FartReceiverSprite"
+                    "MoodChange": -1
                 },
                 {
                     "TraitName": "Pacifist",
-                    "MoodChange": -1,
-                    "SpriteName": "FartReceiverSprite"
+                    "MoodChange": -1
                 },
                 {
                     "TraitName": "Psycho",
-                    "MoodChange": 1,
-                    "SpriteName": "FartReceiverSprite"
+                    "MoodChange": 1
                 },
                 {
                     "TraitName": "Jealous",
-                    "MoodChange": -1,
-                    "SpriteName": "FartReceiverSprite"
+                    "MoodChange": -1
                 }
             ]
         },
@@ -66,17 +56,14 @@
             "ColleaguesAmount": 0,
             "Kill": false,
             "Leave": false,
-            "SpriteName": "SneezeSource",
             "Reactions": [
                 {
                     "TraitName": "Narciss",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 },
                 {
                     "TraitName": "Introvert",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 }
             ]
         },
@@ -86,27 +73,22 @@
             "ColleaguesAmount": 0,
             "Kill": false,
             "Leave": false,
-            "SpriteName": "CrySource",
             "Reactions": [
                 {
                     "TraitName": "Narciss",
-                    "MoodChange": 2,
-                    "SpriteName": ""
+                    "MoodChange": 2
                 },
                 {
                     "TraitName": "Psycho",
-                    "MoodChange": 1,
-                    "SpriteName": ""
+                    "MoodChange": 1
                 },
                 {
                     "TraitName": "Introvert",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 },
                 {
                     "TraitName": "Jealous",
-                    "MoodChange": 1,
-                    "SpriteName": ""
+                    "MoodChange": 1
                 }
             ]
         },
@@ -116,27 +98,22 @@
             "ColleaguesAmount": 0,
             "Kill": false,
             "Leave": false,
-            "SpriteName": "MusicSource",
             "Reactions": [
                 {
                     "TraitName": "Narciss",
-                    "MoodChange": 1,
-                    "SpriteName": ""
+                    "MoodChange": 1
                 },
                 {
                     "TraitName": "Psycho",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 },
                 {
                     "TraitName": "Introvert",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 },
                 {
                     "TraitName": "Extrovert",
-                    "MoodChange": 2,
-                    "SpriteName": ""
+                    "MoodChange": 2
                 }
             ]
         },
@@ -146,32 +123,26 @@
             "ColleaguesAmount": 0,
             "Kill": true,
             "Leave": true,
-            "SpriteName": "Kill",
             "Reactions": [
                 {
                     "TraitName": "Narciss",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 },
                 {
                     "TraitName": "Psycho",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 },
                 {
                     "TraitName": "Pacifist",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 },
                 {
                     "TraitName": "Introvert",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 },
                 {
                     "TraitName": "Extrovert",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 }
             ]
         },
@@ -181,12 +152,10 @@
             "ColleaguesAmount": 0,
             "Kill": false,
             "Leave": false,
-            "SpriteName": "Accept",
             "Reactions": [
                 {
                     "TraitName": "Jealous",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 }
             ]
         },
@@ -196,12 +165,10 @@
             "ColleaguesAmount": 0,
             "Kill": false,
             "Leave": false,
-            "SpriteName": "Decline",
             "Reactions": [
                 {
                     "TraitName": "Jealous",
-                    "MoodChange": 1,
-                    "SpriteName": ""
+                    "MoodChange": 1
                 }
             ]
         },
@@ -211,32 +178,26 @@
             "ColleaguesAmount": 0,
             "Kill": false,
             "Leave": true,
-            "SpriteName": "InsultSource",
             "Reactions": [
                 {
                     "TraitName": "Narciss",
-                    "MoodChange": 1,
-                    "SpriteName": ""
+                    "MoodChange": 1
                 },
                 {
                     "TraitName": "Psycho",
-                    "MoodChange": 2,
-                    "SpriteName": ""
+                    "MoodChange": 2
                 },
                 {
                     "TraitName": "Pacifist",
-                    "MoodChange": -2,
-                    "SpriteName": ""
+                    "MoodChange": -2
                 },
                 {
                     "TraitName": "Introvert",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 },
                 {
                     "TraitName": "Extrovert",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 }
             ]
         },
@@ -246,22 +207,18 @@
             "ColleaguesAmount": 0,
             "Kill": false,
             "Leave": false,
-            "SpriteName": "GamingSource",
             "Reactions": [
                 {
                     "TraitName": "Narciss",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 },
                 {
                     "TraitName": "Extrovert",
-                    "MoodChange": 1,
-                    "SpriteName": ""
+                    "MoodChange": 1
                 },
                 {
                     "TraitName": "Jealous",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 }
             ]
         },
@@ -271,22 +228,18 @@
             "ColleaguesAmount": 0,
             "Kill": false,
             "Leave": false,
-            "SpriteName": "3_0",
             "Reactions": [
                 {
                     "TraitName": "Psycho",
-                    "MoodChange": 1,
-                    "SpriteName": ""
+                    "MoodChange": 1
                 },
                 {
                     "TraitName": "Pacifist",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 },
                 {
                     "TraitName": "Introvert",
-                    "MoodChange": -1,
-                    "SpriteName": ""
+                    "MoodChange": -1
                 }
             ]
         }

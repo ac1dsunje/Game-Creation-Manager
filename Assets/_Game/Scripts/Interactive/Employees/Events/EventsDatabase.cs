@@ -19,12 +19,6 @@ namespace _Game.Scripts.Interactive.Employees.Events
         [ContextMenu("Save Events to JSON")]
         private void SaveEventsToJson()
         {
-            if (Events == null || Events.Count == 0)
-            {
-                Debug.LogWarning("[EventsDatabase] Список событий пуст — нечего сохранять.");
-                return;
-            }
-
             // Путь для сохранения (по умолчанию — папка проекта)
             string path = EditorUtility.SaveFilePanel(
                 "Сохранить события в JSON",
@@ -77,7 +71,6 @@ namespace _Game.Scripts.Interactive.Employees.Events
         public int ColleaguesAmount;
         public bool Kill;
         public bool Leave;
-        public string SpriteName; // имя ассета-спрайта (сам спрайт в JSON не положить)
         public List<TraitReactionDto> Reactions;
 
         public static EventConfigDto FromConfig(EventConfig cfg)
@@ -89,7 +82,6 @@ namespace _Game.Scripts.Interactive.Employees.Events
                 ColleaguesAmount = cfg.ColleaguesAmount,
                 Kill = cfg.Kill,
                 Leave = cfg.Leave,
-                SpriteName = cfg.Sprite != null ? cfg.Sprite.name : null,
                 Reactions = new List<TraitReactionDto>()
             };
 
@@ -109,9 +101,8 @@ namespace _Game.Scripts.Interactive.Employees.Events
     [System.Serializable]
     public class TraitReactionDto
     {
-        public string TraitName; // имя PersonalityConfig
+        public string TraitName;
         public int MoodChange;
-        public string SpriteName;
 
         public static TraitReactionDto FromReaction(TraitReaction r)
         {
@@ -119,7 +110,6 @@ namespace _Game.Scripts.Interactive.Employees.Events
             {
                 TraitName = r.Trait != null ? r.Trait.name : null,
                 MoodChange = r.MoodChange,
-                SpriteName = r.Sprite != null ? r.Sprite.name : null
             };
         }
     }
