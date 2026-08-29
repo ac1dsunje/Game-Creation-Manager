@@ -3252,6 +3252,10 @@ MonoBehaviour:
   - {fileID: 596780490}
   - {fileID: 568021335}
   - {fileID: 583134901}
+  _computerOnData:
+    <Audio>k__BackingField: {fileID: 8300000, guid: 9ad09ebf50cec9342aa08eb0bb70e56b, type: 3}
+    <Volume>k__BackingField: 0.4
+    <Pitch>k__BackingField: 0.5
 --- !u!1001 &429557779
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class WorkingRoom: MonoBehaviour
 {
     [SerializeField] private List<Computer> _computers;
     private readonly List<Employee> _employees = new();
+    [SerializeField] private SoundData _computerOnData;
 
     public List<Employee> GetHiredEmployees() => _employees.Where(employee => employee.IsHired).ToList();
 
@@ -21,6 +22,22 @@ public class WorkingRoom: MonoBehaviour
     [Inject] private GamePlayConfig _config;
     
     private float _timer;
+
+    private void Awake()
+    {
+        foreach (var computer in _computers)
+        {
+            computer.OnChange += OnComputerStateChanged;
+        }
+    }
+
+    private void OnComputerStateChanged(Computer computer)
+    {
+        if (computer.IsOn)
+        {
+            PlaySound(_computerOnData, computer.transform.position);
+        }
+    }
 
     public void AddEmployee(Employee employee)
     {
@@ -86,11 +103,8 @@ public class WorkingRoom: MonoBehaviour
 
             break;
         }
-
-        if (config.SoundData.Audio != null)
-        {
-            AudioSource.PlayClipAtPoint(config.SoundData.Audio, transform.position, config.SoundData.Volume);
-        }
+        
+        PlaySound(config.SoundData, employee.transform.position);
         
         if (config.Leave) employee.Fire();
 
@@ -109,6 +123,14 @@ public class WorkingRoom: MonoBehaviour
 
     private void OnMoneyGiven() => _boss.Pay();
 
+    private void PlaySound(SoundData sound, Vector2 position)
+    {
+        if (sound.Audio != null)
+        {
+            AudioSource.PlayClipAtPoint(sound.Audio, position, sound.Volume);
+        }
+    }
+    
     private void Unsubscribe(Employee employee)
     {
         employee.OnLeave -= OnEmployeeLeave;
@@ -124,6 +146,11 @@ public class WorkingRoom: MonoBehaviour
             Unsubscribe(employee);
         }
         _employees.Clear();
+        
+        foreach (var computer in _computers)
+        {
+            computer.OnChange -= OnComputerStateChanged;
+        }
     }
 }
 }

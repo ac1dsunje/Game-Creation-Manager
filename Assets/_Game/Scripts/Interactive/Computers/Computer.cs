@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace _Game.Scripts.Interactive.Computers
@@ -12,6 +13,8 @@ public class Computer: InteractiveObject
 
     public bool IsOn { get; private set; }
     public bool IsBusy { get; private set; }
+    
+    public event Action<Computer> OnChange;
 
     protected override void Awake()
     {
@@ -35,6 +38,7 @@ public class Computer: InteractiveObject
         _off.SetActive(true);
         _on.SetActive(false);
         IsOn = false;
+        OnChange(this);
     }
 
     public void On()
@@ -42,6 +46,7 @@ public class Computer: InteractiveObject
         _off.SetActive(false);
         _on.SetActive(true);
         IsOn = true;
+        OnChange(this);
     }
 }
 }

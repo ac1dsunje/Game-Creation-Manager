@@ -35,7 +35,7 @@ public class TraitReaction
 public class SoundData
 {
     [field: SerializeField] public AudioClip Audio { get; private set; }
-    [field: SerializeField] public float Volume { get; private set; }
-    [field: SerializeField] public float Pitch { get; private set; }
+    [field: SerializeField, Range(0.1f,1)] public float Volume { get; private set; }
+    [field: SerializeField, Range(0.1f,1)] public float Pitch { get; private set; }
 }
 }
