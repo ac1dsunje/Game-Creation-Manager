@@ -89,6 +89,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbcc64f612a14858af0d2dfdf4e90910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::_Game.Scripts.FormsUI
+  _applySound:
+    <Audio>k__BackingField: {fileID: 8300000, guid: fc3c67bcff9e0c54c83db8af1522199c, type: 3}
+    <Volume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
+  _declineSound:
+    <Audio>k__BackingField: {fileID: 8300000, guid: 1d6117a44cc816844b9bf5a4d00f226a, type: 3}
+    <Volume>k__BackingField: 1
+    <Pitch>k__BackingField: 1
   _slot: {fileID: 5646589380128386274, guid: b1adbb25bbf268f429728653ea6a968e, type: 3}
   _container: {fileID: 1209678164085805343}
 --- !u!1 &2122950503575062825

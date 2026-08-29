@@ -3,6 +3,7 @@ using _Game.Scripts.Interactive.Computers;
 using _Game.Scripts.Interactive.Employees.Events;
 using _Game.Scripts.Interactive.Employees.Forms;
 using _Game.Scripts.Interactive.Employees.Traits;
+using _Game.Scripts.UI;
 using UnityEngine;
 using VContainer;
 using Random = UnityEngine.Random;
@@ -12,9 +13,16 @@ namespace _Game.Scripts.Interactive.Employees
 public class Employee: InteractiveObject
 {
     [Inject] private TraitsDatabase _traitsDatabase;
-    
-    // Form
-    [field: SerializeField] public Form ShownForm { get; private set; }
+
+    // Audio
+    [Inject] private AudioManager _audioManager;
+    [SerializeField] private SoundData _taskCompletedSound;
+
+    [SerializeField] private SpritePopup _taskCompletePopup;
+    [SerializeField] private Sprite _taskCompleteSprite;
+
+        // Form
+        [field: SerializeField] public Form ShownForm { get; private set; }
     [field: SerializeField] public Form RealForm { get; private set; }
     
     // Working
@@ -146,6 +154,8 @@ public class Employee: InteractiveObject
         TaskDone++;
         ChangeMood(RealForm.Trait.OnFinishedTaskReaction);
         OnPaid?.Invoke(this, earn);
+        _taskCompletePopup.Show(_taskCompleteSprite);
+        _audioManager.PlaySound(_taskCompletedSound, transform.position);
         MaxProgress = _config.DefaultProgress;
     }
 
