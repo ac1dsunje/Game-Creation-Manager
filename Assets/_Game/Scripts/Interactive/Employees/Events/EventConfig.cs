@@ -19,7 +19,7 @@ public class EventConfig : ScriptableObject
     [field: SerializeField] public bool Kill { get; private set; }
     [field: SerializeField] public bool Leave { get; private set; }
     [field: SerializeField] public Sprite Sprite { get; private set; }
-    [field: SerializeField] public AudioClip Audio { get; private set; }
+    [field: SerializeField] public SoundData SoundData { get; private set; }
 }
 
 [Serializable]
@@ -29,5 +29,13 @@ public class TraitReaction
 
     [field: SerializeField] public int MoodChange { get; private set; }
     [field: SerializeField] public Sprite Sprite { get; private set; }
+}
+
+[Serializable]
+public class SoundData
+{
+    [field: SerializeField] public AudioClip Audio { get; private set; }
+    [field: SerializeField] public float Volume { get; private set; }
+    [field: SerializeField] public float Pitch { get; private set; }
 }
 }

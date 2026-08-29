@@ -87,6 +87,11 @@ public class WorkingRoom: MonoBehaviour
             break;
         }
 
+        if (config.SoundData.Audio != null)
+        {
+            AudioSource.PlayClipAtPoint(config.SoundData.Audio, transform.position, config.SoundData.Volume);
+        }
+        
         if (config.Leave) employee.Fire();
 
         if (config.Kill) colleagues[Random.Range(0, colleagues.Count)].Kill();
